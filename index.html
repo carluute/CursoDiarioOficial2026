@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="es" class="h-full">
-<head>
+ <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso: El Diario Oficial de Colombia - INC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Curso: El Diario Oficial de Colombia – INC | ¿Cómo publicar a tiempo? </title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script>
-  // Compatibilidad: reemplaza SDKs de plataforma no disponibles en GitHub Pages actualización
+<script>
+  // Compatibilidad: reemplaza SDKs de plataforma no disponibles en GitHub Pages
   window.elementSdk = null;
   window.dataSdk = null;
 </script>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-    /* Accesibilidad - Tratado de Marrakech */
     html { 
-      font-size: 16px; 
+      font-size: clamp(14px, 2vw, 16px);
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
       font-family: Verdana, 'Nunito Sans', sans-serif;
       line-height: 1.6;
       letter-spacing: 0.5px;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    /* WCAG AAA: Contraste mínimo 7:1 en textos críticos */
     .font-display { 
       font-family: 'Nunito Sans', Verdana, sans-serif; 
       font-weight: 900; 
@@ -47,32 +47,22 @@
     :root {
       --color-inc-primary: #618485;
       --color-inc-dark: #1d3c50;
-      --color-inc-light: #51b7c;
+      --color-inc-accent: #5187c;
       --color-inc-black: #000000;
       --color-inc-white: #ffffff;
-      --color-inc-accent: #5187c;
       --contrast-high: #000000;
-      --contrast-medium: #1d3c50;
-      --contrast-text: #ffffff;
     }
 
     body { 
       background: linear-gradient(135deg, #1d3c50 0%, #2a5273 50%, #1d3c50 100%);
     }
 
-    /* Focus visible para navegación por teclado */
     *:focus-visible {
       outline: 4px solid #FFD700;
       outline-offset: 2px;
       border-radius: 4px;
     }
 
-    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
-      outline: 4px solid #FFD700;
-      outline-offset: 2px;
-    }
-
-    /* Animaciones accesibles */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -96,17 +86,6 @@
       50% { box-shadow: 0 0 40px rgba(97, 132, 133, 0.9), inset 0 0 15px rgba(97, 132, 133, 0.5); }
     }
 
-    @keyframes bounce-check {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    @keyframes shake-x {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-10px); }
-      75% { transform: translateX(10px); }
-    }
-
     .slide-enter { animation: slideIn 0.5s ease-out forwards; }
     .fade-enter { animation: fadeIn 0.4s ease-out forwards; }
     .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
@@ -124,19 +103,6 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 15px rgba(97, 132, 133, 0.4);
     }
 
-    .quiz-option {
-      transition: all 0.2s ease;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-    }
-
-    .quiz-option:hover:not(.selected):not(.correct):not(.incorrect) {
-      background: rgba(97, 132, 133, 0.25);
-      border-color: #1d3c50;
-      box-shadow: inset 0 0 10px rgba(97, 132, 133, 0.2);
-    }
-
     .planning-card {
       background: linear-gradient(135deg, rgba(29, 60, 80, 0.9) 0%, rgba(20, 45, 65, 0.9) 100%);
       border: 3px solid #618485;
@@ -146,7 +112,6 @@
     .planning-card:hover {
       border-color: #FFD700;
       box-shadow: 0 8px 32px rgba(97, 132, 133, 0.4), 0 0 20px rgba(255, 215, 0, 0.2);
-      transform: translateY(-2px);
     }
 
     .planning-input {
@@ -178,156 +143,6 @@
       padding: 0.5rem;
     }
 
-    select.planning-input optgroup {
-      background-color: #1d3c50;
-      color: #FFD700;
-      font-weight: 900;
-      font-family: 'Nunito Sans', Verdana, sans-serif;
-    }
-
-    select.planning-input optgroup option {
-      color: #ffffff;
-      padding-left: 1.5rem;
-      font-weight: 600;
-    }
-
-    .result-success {
-      animation: bounce-check 0.6s ease-out;
-    }
-
-    .result-error {
-      animation: shake-x 0.4s ease-in-out;
-    }
-
-    .inc-header {
-      background: linear-gradient(135deg, #1d3c50 0%, rgba(29, 60, 80, 0.95) 100%);
-      border-bottom: 4px solid #618485;
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .calc-result-box {
-      background: linear-gradient(135deg, rgba(97, 132, 133, 0.15) 0%, rgba(97, 132, 133, 0.08) 100%);
-      border: 3px solid #618485;
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-
-    .calc-result-number {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: #1d3c50;
-      font-family: 'Nunito Sans', Verdana, sans-serif;
-    }
-
-    .option-button {
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: 2px solid rgba(97, 132, 133, 0.5);
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-      padding: 1rem;
-    }
-
-    .option-button:hover {
-      border-color: #1d3c50;
-      background: rgba(97, 132, 133, 0.2);
-      box-shadow: inset 0 0 10px rgba(97, 132, 133, 0.2);
-    }
-
-    .option-button.selected {
-      border-color: #FFD700;
-      background: rgba(255, 215, 0, 0.1);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), inset 0 0 15px rgba(255, 215, 0, 0.1);
-    }
-
-    .nav-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #1d3c50 0%, #618485 100%);
-      color: #ffffff;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      margin-left: 0.5rem;
-      border: 2px solid #FFD700;
-    }
-
-    .difficulty-badge {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 800;
-      border: 2px solid currentColor;
-    }
-
-    .difficulty-low {
-      background: rgba(34, 197, 94, 0.25);
-      color: #0d5a2d;
-      border-color: #0d5a2d;
-    }
-
-    .difficulty-medium {
-      background: rgba(251, 146, 60, 0.25);
-      color: #8b4513;
-      border-color: #8b4513;
-    }
-
-    .difficulty-high {
-      background: rgba(239, 68, 68, 0.25);
-      color: #991b1b;
-      border-color: #991b1b;
-    }
-
-    .info-panel {
-      background: rgba(0, 0, 0, 0.1);
-      border: 3px solid #1d3c50;
-      border-radius: 10px;
-      padding: 1.5rem;
-    }
-
-    .certificate-container {
-      background: #ffffff;
-      border: 4px solid #1d3c50;
-      border-radius: 8px;
-      padding: 3rem;
-      max-width: 900px;
-      margin: 2rem auto;
-      position: relative;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
-      color: #1d3c50;
-    }
-
-    .certificate-header {
-      text-align: center;
-      border-bottom: 3px solid #1d3c50;
-      padding-bottom: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .certificate-title {
-      font-family: 'Nunito Sans', Verdana, sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      color: #1d3c50;
-      margin: 0.5rem 0;
-    }
-
-    .certificate-seal {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #618485 0%, #5187c 100%);
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      border: 4px solid #1d3c50;
-      box-shadow: 0 4px 15px rgba(29, 60, 80, 0.3);
-    }
-
     .btn-primary {
       background: linear-gradient(135deg, #1d3c50 0%, #618485 100%);
       color: #ffffff;
@@ -344,7 +159,6 @@
     .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(29, 60, 80, 0.4), 0 0 20px rgba(255, 215, 0, 0.5);
-      background: linear-gradient(135deg, #1d3c50 0%, #618485 100%);
     }
 
     .btn-primary:focus-visible {
@@ -367,7 +181,6 @@
 
     .btn-secondary:hover {
       background: rgba(29, 60, 80, 0.2);
-      box-shadow: inset 0 0 15px rgba(29, 60, 80, 0.2);
     }
 
     .progress-bar-inc {
@@ -383,35 +196,6 @@
       background: linear-gradient(90deg, #618485 0%, #FFD700 50%, #5187c 100%);
       transition: width 0.5s ease;
       box-shadow: inset 0 0 5px rgba(255, 215, 0, 0.5);
-    }
-
-    /* Glosario */
-    .glossary-search {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 100;
-    }
-
-    .glossary-button {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1d3c50 0%, #618485 100%);
-      border: 3px solid #FFD700;
-      color: #ffffff;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .glossary-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4), 0 0 20px rgba(255, 215, 0, 0.4);
     }
 
     .glossary-modal {
@@ -467,7 +251,89 @@
       line-height: 1.7;
     }
 
-    /* Créditos */
+    .quick-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.75rem;
+      background: rgba(0,0,0,0.15);
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .quick-nav-btn {
+      padding: 0.5rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 2px solid rgba(255, 215, 0, 0.4);
+      background: rgba(255, 215, 0, 0.1);
+      color: #FFD700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quick-nav-btn:hover {
+      border-color: #FFD700;
+      background: rgba(255, 215, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    .inc-logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1rem;
+    }
+
+    .certificate-container {
+      background: #ffffff;
+      border: 4px solid #1d3c50;
+      border-radius: 8px;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      position: relative;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+      color: #1d3c50;
+    }
+
+    .certificate-header {
+      text-align: center;
+      border-bottom: 3px solid #1d3c50;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .certificate-title {
+      font-family: 'Nunito Sans', Verdana, sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: #1d3c50;
+      margin: 0.5rem 0;
+    }
+
+    .certificate-seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #618485 0%, #5187c 100%);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      border: 4px solid #1d3c50;
+      box-shadow: 0 4px 15px rgba(29, 60, 80, 0.3);
+    }
+
+    .info-panel {
+      background: rgba(0, 0, 0, 0.1);
+      border: 3px solid #1d3c50;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
     .credits-section {
       background: linear-gradient(135deg, rgba(29, 60, 80, 0.1) 0%, rgba(97, 132, 133, 0.1) 100%);
       border: 3px solid #1d3c50;
@@ -501,47 +367,6 @@
       color: #1d3c50;
     }
 
-    .credits-list li strong {
-      color: #1d3c50;
-      font-family: 'Nunito Sans', Verdana, sans-serif;
-    }
-
-    /* Ejercicio de publicación */
-    .exercise-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 3px solid #618485;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-    }
-
-    .exercise-title {
-      font-family: 'Nunito Sans', Verdana, sans-serif;
-      font-weight: 900;
-      font-size: 1.2rem;
-      color: #FFD700;
-      margin-bottom: 1rem;
-    }
-
-    .skip-button {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      color: #ffffff;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 1rem;
-    }
-
-    .skip-button:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.6);
-    }
-
     .sr-only {
       position: absolute;
       width: 1px;
@@ -554,7 +379,6 @@
       border-width: 0;
     }
 
-    /* Skip to main content */
     .skip-link {
       position: absolute;
       top: -40px;
@@ -570,201 +394,255 @@
     .skip-link:focus {
       top: 0;
     }
+
+    /* Mobile-first responsive design */
+    @media (max-width: 768px) {
+      html {
+        font-size: clamp(12px, 2.5vw, 14px);
+      }
+
+      .btn-primary, .btn-secondary {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .quick-nav {
+        gap: 0.35rem;
+        padding: 0.5rem;
+      }
+
+      .quick-nav-btn {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.75rem;
+      }
+
+      .certificate-container {
+        padding: 1.5rem;
+        margin: 1rem auto;
+      }
+
+      .certificate-title {
+        font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      }
+
+      .certificate-seal {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .glossary-content {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 13px;
+      }
+
+      .btn-primary, .btn-secondary {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+        width: 100%;
+      }
+
+      .certificate-container {
+        padding: 1rem;
+        border: 3px solid #1d3c50;
+      }
+
+      .certificate-title {
+        font-size: 1.25rem;
+      }
+
+      .certificate-seal {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .glossary-content {
+        padding: 1rem;
+        max-height: 90vh;
+        margin: 0 1rem;
+        border-radius: 8px;
+      }
+
+      .credits-section {
+        padding: 1rem;
+      }
+    }
+
+    .difficulty-badge {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      border: 2px solid currentColor;
+    }
+
+    .difficulty-low {
+      background: rgba(34, 197, 94, 0.25);
+      color: #0d5a2d;
+      border-color: #0d5a2d;
+    }
+
+    .difficulty-medium {
+      background: rgba(251, 146, 60, 0.25);
+      color: #8b4513;
+      border-color: #8b4513;
+    }
+
+    .difficulty-high {
+      background: rgba(239, 68, 68, 0.25);
+      color: #991b1b;
+      border-color: #991b1b;
+    }
   </style>
-</head>
-<body class="h-full font-body">
-  <a href="#main-content" class="skip-link">Ir al contenido principal</a>
-
-  <div id="app" class="h-full w-full overflow-auto" style="background: linear-gradient(135deg, #1d3c50 0%, #2a5273 50%, #1d3c50 100%);">
-    
-    <!-- Welcome Screen -->
-    <div id="welcome-screen" class="min-h-full flex flex-col items-center justify-center p-6">
-      <main id="main-content" class="text-center max-w-2xl mx-auto slide-enter">
-        <div class="mb-8">
-          <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
-            <span class="text-5xl" aria-hidden="true">📜</span>
-          </div>
-          <h1 id="main-title" class="font-display text-4xl md:text-5xl font-bold text-white mb-4">
-            Curso: El Diario Oficial
-          </h1>
-          <p id="welcome-text" class="text-xl font-semibold text-white mb-2" style="color: #ffffff; font-weight: 700;">
-            Bienvenido al curso interactivo sobre el Diario Oficial de Colombia
-          </p>
-          <p class="text-lg font-bold" style="color: #FFD700;">Imprenta Nacional de Colombia</p>
-        </div>
-        
-        <div class="grid grid-cols-4 gap-4 mb-8 text-center">
-          <div class="bg-white/15 rounded-xl p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
-            <div class="text-3xl mb-2" aria-hidden="true">📚</div>
-            <div class="text-2xl font-bold text-white">8</div>
-            <div class="text-sm font-semibold text-white">Módulos</div>
-          </div>
-          <div class="bg-white/15 rounded-xl p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
-            <div class="text-3xl mb-2" aria-hidden="true">❓</div>
-            <div class="text-2xl font-bold text-white">8</div>
-            <div class="text-sm font-semibold text-white">Preguntas</div>
-          </div>
-          <div class="bg-white/15 rounded-xl p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
-            <div class="text-3xl mb-2" aria-hidden="true">🎮</div>
-            <div class="text-2xl font-bold text-white">5</div>
-            <div class="text-sm font-semibold text-white">Casos Juego</div>
-          </div>
-          <div class="bg-white/15 rounded-xl p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
-            <div class="text-3xl mb-2" aria-hidden="true">🧮</div>
-            <div class="text-2xl font-bold text-white">1</div>
-            <div class="text-sm font-semibold text-white">Calculadora</div>
-          </div>
-        </div>
-        
-        <div class="space-y-3">
-          <button onclick="startCourse()" class="px-8 py-4 font-display text-lg rounded-full shadow-lg transition-all transform hover:scale-105 w-full border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white; font-weight: 900; border-color: #FFD700;">
-            🚀 Comenzar Curso
-          </button>
-          <button onclick="openCalculator()" class="px-8 py-4 font-display text-lg rounded-full shadow-lg transition-all transform hover:scale-105 w-full border-3" style="background: rgba(255, 215, 0, 0.15); color: #FFD700; font-weight: 900; border-color: #FFD700;">
-            🧮 Ir a Calculadora Directa
-          </button>
-          <button onclick="openGlossary()" class="px-8 py-4 font-display text-lg rounded-full shadow-lg transition-all transform hover:scale-105 w-full border-3" style="background: rgba(255, 255, 255, 0.1); color: white; font-weight: 900; border-color: #FFD700;">
-            📖 Consultar Glosario
-          </button>
-        </div>
-      </main>
-    </div>
-    
-    <!-- Course Content -->
-    <div id="course-screen" class="min-h-full hidden">
-      <!-- Progress Bar -->
-      <div class="sticky top-0 z-50 inc-header px-4 py-3">
-        <div class="max-w-4xl mx-auto">
-          <div class="flex items-center justify-between mb-3">
-            <span class="text-sm font-bold text-white">Progreso del curso</span>
-            <div class="flex gap-2">
-              <button onclick="openGlossary()" class="px-3 py-2 rounded-lg hover:opacity-80 transition-all font-bold text-sm border-2 border-yellow-400" style="background: rgba(255, 215, 0, 0.15); color: #FFD700;">
-                📖 Glosario
-              </button>
-              <button onclick="openCalculator()" class="px-3 py-2 rounded-lg hover:opacity-80 transition-all font-semibold border-2 border-yellow-400" style="background: linear-gradient(135deg, #618485 0%, #5187c 100%); color: white;">
-                🧮 Calculadora
-              </button>
-            </div>
-            <span id="progress-text" class="text-sm font-bold text-white" style="color: #FFD700;">0 / 8</span>
-          </div>
-          <div class="progress-bar-inc">
-            <div id="progress-bar" class="progress-bar-inc-fill progress-fill rounded-full" style="width: 0%"></div>
-          </div>
-        </div>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full font-body"><a href="#main-content" class="skip-link">Ir al contenido principal</a>
+  <div id="app" class="h-full w-full overflow-auto" style="background: linear-gradient(135deg, #1d3c50 0%, #2a5273 50%, #1d3c50 100%);"><!-- Welcome Screen -->
+   <div id="welcome-screen" class="min-h-full flex flex-col items-center justify-center p-4 md:p-6">
+    <main id="main-content" class="text-center max-w-2xl mx-auto slide-enter w-full">
+     <div class="mb-8">
+      <div class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;"><span class="text-4xl md:text-5xl" aria-hidden="true">📜</span>
       </div>
-      
-      <!-- Slide Content -->
-      <main id="slide-container" class="max-w-4xl mx-auto p-6">
-        <!-- Slides will be rendered here -->
-      </main>
-      
-      <!-- Navigation -->
-      <div class="sticky bottom-0 bg-gray-900/95 backdrop-blur border-t px-4 py-4 border-t-4" style="border-color: #618485;">
-        <div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
-          <button id="prev-btn" onclick="prevSlide()" class="px-6 py-3 bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed border-2 border-gray-600">
-            ← Anterior
-          </button>
-          <div id="slide-dots" class="flex gap-2" role="tablist" aria-label="Navegación de diapositivas">
-            <!-- Dots rendered dynamically -->
-          </div>
-          <button id="next-btn" onclick="nextSlide()" class="px-6 py-3 rounded-lg font-display font-bold transition-all border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
-            Siguiente →
-          </button>
-        </div>
+      <h1 id="main-title" class="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Curso: El Diario Oficial</h1>
+      <p id="welcome-text" class="text-base md:text-lg font-semibold text-white mb-2" style="color: #ffffff;">Bienvenido al curso interactivo sobre el Diario Oficial de Colombia</p>
+      <p class="text-base md:text-lg font-bold" style="color: #FFD700;">Imprenta Nacional de Colombia</p>
+     </div>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-6 md:mb-8 text-center">
+      <div class="bg-white/15 rounded-lg md:rounded-xl p-3 md:p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
+       <div class="text-2xl md:text-3xl mb-1" aria-hidden="true">
+        📚
+       </div>
+       <div class="text-xl md:text-2xl font-bold text-white">
+        8
+       </div>
+       <div class="text-xs md:text-sm font-semibold text-white">
+        Módulos
+       </div>
       </div>
-    </div>
-
-    <!-- Calculator Screen -->
-    <div id="calculator-screen" class="min-h-full hidden">
-      <div class="sticky top-0 z-50 inc-header px-4 py-3">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-          <h2 class="font-display text-2xl font-bold text-white">🧮 Calculadora de Planeación Editorial</h2>
-          <button onclick="closeCalculator()" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all border-2 border-gray-600">
-            ✕ Cerrar
-          </button>
-        </div>
+      <div class="bg-white/15 rounded-lg md:rounded-xl p-3 md:p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
+       <div class="text-2xl md:text-3xl mb-1" aria-hidden="true">
+        ❓
+       </div>
+       <div class="text-xl md:text-2xl font-bold text-white">
+        8
+       </div>
+       <div class="text-xs md:text-sm font-semibold text-white">
+        Preguntas
+       </div>
       </div>
-
-      <main id="calculator-container" class="max-w-6xl mx-auto p-6">
-        <!-- Calculator content rendered here -->
-      </main>
-    </div>
-
-    <!-- Planning Game Screen -->
-    <div id="planning-game-screen" class="min-h-full hidden">
-      <div class="sticky top-0 z-50 inc-header px-4 py-3">
-        <div class="max-w-5xl mx-auto flex items-center justify-between">
-          <h2 class="font-display text-2xl font-bold text-white">🎮 Juego de Planeación Editorial</h2>
-          <span class="text-white font-bold border-2 border-yellow-400 px-4 py-2 rounded-lg" style="color: #FFD700;">Puntuación: <span id="game-score">0</span></span>
-        </div>
+      <div class="bg-white/15 rounded-lg md:rounded-xl p-3 md:p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
+       <div class="text-2xl md:text-3xl mb-1" aria-hidden="true">
+        🎮
+       </div>
+       <div class="text-xl md:text-2xl font-bold text-white">
+        5
+       </div>
+       <div class="text-xs md:text-sm font-semibold text-white">
+        Casos Juego
+       </div>
       </div>
-
-      <main id="planning-game-container" class="max-w-5xl mx-auto p-6">
-        <!-- Game content rendered here -->
-      </main>
-    </div>
-    
-    <!-- Quiz Screen -->
-    <div id="quiz-screen" class="min-h-full hidden">
-      <main id="quiz-container" class="max-w-3xl mx-auto p-6">
-        <!-- Quiz content rendered here -->
-      </main>
-    </div>
-    
-    <!-- Results Screen -->
-    <div id="results-screen" class="min-h-full hidden flex items-center justify-center p-6">
-      <main id="results-container" class="text-center max-w-2xl mx-auto">
-        <!-- Results rendered here -->
-      </main>
-    </div>
-
-    <!-- Certificate Screen -->
-    <div id="certificate-screen" class="min-h-full hidden flex items-center justify-center p-6">
-      <main id="certificate-container" class="w-full max-w-4xl">
-        <!-- Certificate rendered here -->
-      </main>
-    </div>
-
-    <!-- Publication Exercise Screen -->
-    <div id="exercise-screen" class="min-h-full hidden">
-      <div class="sticky top-0 z-50 inc-header px-4 py-3">
-        <div class="max-w-5xl mx-auto flex items-center justify-between">
-          <h2 class="font-display text-2xl font-bold text-white">📋 Ejercicio Práctico: Publicar un Documento</h2>
-          <button onclick="closeExercise()" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all border-2 border-gray-600">
-            ✕ Cerrar
-          </button>
-        </div>
+      <div class="bg-white/15 rounded-lg md:rounded-xl p-3 md:p-4 backdrop-blur border-3 border-yellow-400" style="border-color: #FFD700;">
+       <div class="text-2xl md:text-3xl mb-1" aria-hidden="true">
+        🧮
+       </div>
+       <div class="text-xl md:text-2xl font-bold text-white">
+        1
+       </div>
+       <div class="text-xs md:text-sm font-semibold text-white">
+        Calculadora
+       </div>
       </div>
-
-      <main id="exercise-container" class="max-w-5xl mx-auto p-6">
-        <!-- Exercise content rendered here -->
-      </main>
-    </div>
-
-    <!-- Glossary Modal -->
-    <div id="glossary-modal" class="glossary-modal">
-      <div class="glossary-content">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="font-display text-2xl font-bold">📖 Glosario Editorial</h2>
-          <button onclick="closeGlossary()" class="text-2xl font-bold cursor-pointer hover:opacity-70">✕</button>
-        </div>
-        
-        <div class="mb-4">
-          <input type="text" id="glossary-search" placeholder="Buscar término..." class="w-full px-4 py-3 border-2 border-1d3c50 rounded-lg font-semibold" style="border-color: #1d3c50;" onkeyup="filterGlossary()">
-        </div>
-
-        <div id="glossary-entries">
-          <!-- Entries rendered here -->
-        </div>
+     </div>
+     <div class="space-y-3 w-full"><button onclick="startCourse()" class="px-6 md:px-8 py-3 md:py-4 font-display text-base md:text-lg rounded-full shadow-lg transition-all transform hover:scale-105 w-full border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white; font-weight: 900;"> 🚀 Comenzar Curso </button> <button onclick="openCalculator()" class="px-6 md:px-8 py-3 md:py-4 font-display text-base md:text-lg rounded-full shadow-lg transition-all transform hover:scale-105 w-full border-3" style="background: rgba(255, 215, 0, 0.15); color: #FFD700; font-weight: 900; border-color: #FFD700;"> 🧮 Ir a Calculadora Directa </button> <button onclick="openGlossary()" class="px-6 md:px-8 py-3 md:py-4 font-display text-base md:text-lg rounded-full shadow-lg transition-all transform hover:scale-105 w-full border-3" style="background: rgba(255, 255, 255, 0.1); color: white; font-weight: 900; border-color: #FFD700;"> 📖 Consultar Glosario </button>
+     </div>
+    </main>
+   </div><!-- Course Content -->
+   <div id="course-screen" class="min-h-full hidden pb-32"><!-- Progress Bar -->
+    <div class="sticky top-0 z-50 inc-header px-3 md:px-4 py-2 md:py-3" style="background: linear-gradient(135deg, #1d3c50 0%, rgba(29, 60, 80, 0.95) 100%); border-bottom: 4px solid #618485;">
+     <div class="max-w-4xl mx-auto">
+      <div class="flex items-center justify-between mb-2 md:mb-3 flex-wrap gap-2"><span class="text-xs md:text-sm font-bold text-white">Progreso</span> <span id="progress-text" class="text-xs md:text-sm font-bold text-white" style="color: #FFD700;">0 / 8</span>
       </div>
+      <div class="progress-bar-inc">
+       <div id="progress-bar" class="progress-bar-inc-fill progress-fill rounded-full" style="width: 0%"></div>
+      </div>
+     </div>
+    </div><!-- Slide Content -->
+    <main id="slide-container" class="max-w-4xl mx-auto p-3 md:p-6 pt-4 md:pt-8"><!-- Slides rendered here -->
+    </main><!-- Quick Navigation -->
+    <div class="fixed bottom-24 md:bottom-28 left-0 right-0 z-40 px-3 md:px-4">
+     <div class="max-w-4xl mx-auto quick-nav"><button onclick="openGlossary()" class="quick-nav-btn" title="Abrir Glosario">📖 Glosario</button> <button onclick="openCalculator()" class="quick-nav-btn" title="Abrir Calculadora">🧮 Calc</button> <button onclick="backToHome()" class="quick-nav-btn" title="Volver al Inicio">🏠 Inicio</button>
+     </div>
+    </div><!-- Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-900/95 backdrop-blur border-t px-3 md:px-4 py-3 md:py-4 border-t-4 z-50" style="border-color: #618485;">
+     <div class="max-w-4xl mx-auto flex items-center justify-between gap-2 md:gap-4 flex-wrap"><button id="prev-btn" onclick="prevSlide()" class="px-3 md:px-6 py-2 md:py-3 bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed border-2 border-gray-600 text-xs md:text-base"> ← Anterior </button>
+      <div id="slide-dots" class="flex gap-1 md:gap-2" role="tablist" aria-label="Navegación de diapositivas"><!-- Dots rendered dynamically -->
+      </div><button id="next-btn" onclick="nextSlide()" class="px-3 md:px-6 py-2 md:py-3 rounded-lg font-display font-bold transition-all border-3 border-yellow-400 text-xs md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;"> Siguiente → </button>
+     </div>
     </div>
+   </div><!-- Calculator Screen -->
+   <div id="calculator-screen" class="min-h-full hidden pb-8">
+    <div class="sticky top-0 z-50 inc-header px-3 md:px-4 py-3" style="background: linear-gradient(135deg, #1d3c50 0%, rgba(29, 60, 80, 0.95) 100%); border-bottom: 4px solid #618485;">
+     <div class="max-w-6xl mx-auto flex items-center justify-between flex-wrap gap-2">
+      <h2 class="font-display text-lg md:text-2xl font-bold text-white">🧮 Calculadora</h2><button onclick="closeCalculator()" class="px-3 md:px-4 py-2 md:py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all border-2 border-gray-600 text-xs md:text-base"> ✕ Cerrar </button>
+     </div>
+    </div>
+    <main id="calculator-container" class="max-w-6xl mx-auto p-3 md:p-6"><!-- Calculator content rendered here -->
+    </main>
+   </div><!-- Planning Game Screen -->
+   <div id="planning-game-screen" class="min-h-full hidden pb-8">
+    <div class="sticky top-0 z-50 inc-header px-3 md:px-4 py-3" style="background: linear-gradient(135deg, #1d3c50 0%, rgba(29, 60, 80, 0.95) 100%); border-bottom: 4px solid #618485;">
+     <div class="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-2">
+      <h2 class="font-display text-lg md:text-2xl font-bold text-white">🎮 Juego Planeación</h2><span class="text-white font-bold border-2 border-yellow-400 px-3 md:px-4 py-2 rounded-lg text-xs md:text-base" style="color: #FFD700;">Puntos: <span id="game-score">0</span></span>
+     </div>
+    </div>
+    <main id="planning-game-container" class="max-w-5xl mx-auto p-3 md:p-6"><!-- Game content rendered here -->
+    </main>
+   </div><!-- Quiz Screen -->
+   <div id="quiz-screen" class="min-h-full hidden pb-8">
+    <main id="quiz-container" class="max-w-3xl mx-auto p-3 md:p-6"><!-- Quiz content rendered here -->
+    </main>
+   </div><!-- Results Screen -->
+   <div id="results-screen" class="min-h-full hidden flex items-center justify-center p-3 md:p-6">
+    <main id="results-container" class="text-center max-w-2xl mx-auto w-full"><!-- Results rendered here -->
+    </main>
+   </div><!-- User Data Screen -->
+   <div id="user-data-screen" class="min-h-full hidden flex items-center justify-center p-3 md:p-6">
+    <main id="user-data-container" class="text-center max-w-2xl mx-auto w-full"><!-- User data form rendered here -->
+    </main>
+   </div><!-- Certificate Screen -->
+   <div id="certificate-screen" class="min-h-full hidden flex items-center justify-center p-3 md:p-6">
+    <main id="certificate-container" class="w-full max-w-4xl"><!-- Certificate rendered here -->
+    </main>
+   </div><!-- Publication Exercise Screen -->
+   <div id="exercise-screen" class="min-h-full hidden pb-8">
+    <div class="sticky top-0 z-50 inc-header px-3 md:px-4 py-3" style="background: linear-gradient(135deg, #1d3c50 0%, rgba(29, 60, 80, 0.95) 100%); border-bottom: 4px solid #618485;">
+     <div class="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-2">
+      <h2 class="font-display text-lg md:text-2xl font-bold text-white">📋 Ejercicio Práctico</h2><button onclick="closeExercise()" class="px-3 md:px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all border-2 border-gray-600 text-xs md:text-base"> ✕ Cerrar </button>
+     </div>
+    </div>
+    <main id="exercise-container" class="max-w-5xl mx-auto p-3 md:p-6"><!-- Exercise content rendered here -->
+    </main>
+   </div><!-- Glossary Modal -->
+   <div id="glossary-modal" class="glossary-modal">
+    <div class="glossary-content">
+     <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+      <h2 class="font-display text-lg md:text-2xl font-bold">📖 Glosario Editorial</h2><button onclick="closeGlossary()" class="text-2xl font-bold cursor-pointer hover:opacity-70">✕</button>
+     </div>
+     <div class="mb-4"><input type="text" id="glossary-search" placeholder="Buscar término..." class="w-full px-4 py-3 border-2 rounded-lg font-semibold text-sm md:text-base" style="border-color: #1d3c50;" onkeyup="filterGlossary()">
+     </div>
+     <div id="glossary-entries"><!-- Entries rendered here -->
+     </div>
+    </div>
+   </div>
   </div>
-
-  <!-- Glossary Button -->
-  <div class="glossary-search">
-    <button onclick="openGlossary()" class="glossary-button" title="Abrir Glosario (Acceso rápido)">📖</button>
-  </div>
-
   <script>
     // Glosario completo de términos
     const glossaryTerms = [
@@ -797,100 +675,19 @@
         definition: "Conversión de documentos originales a archivos digitales procesables. Las tasas varían: Word (20 pág/h), Escaneado OCR (10 pág/h), Digitación manual (5 pág/h)."
       },
       {
-        term: "Directiva Presidencial 01 de 2025",
-        definition: "Norma que establece las anticipaciones recomendadas para radicación de documentos según su complejidad: ≤20 artículos (6 días), 21-50 artículos (10 días), >50 artículos (15 días)."
-      },
-      {
         term: "Diario Oficial",
         definition: "Medio oficial de publicación de normas, decretos, resoluciones y actos administrativos del Estado colombiano. Garantiza publicidad, legalidad y seguridad jurídica. Administrado por la Imprenta Nacional de Colombia."
-      },
-      {
-        term: "Documento Escaneado (OCR)",
-        definition: "Documento en formato imagen que ha sido convertido a texto mediante Reconocimiento Óptico de Caracteres (OCR). Requiere corrección adicional por errores de lectura, resultando en una tasa de producción de 10 páginas/hora."
-      },
-      {
-        term: "Edictos judiciales",
-        definition: "Publicaciones ordenadas por la rama judicial para hacer conocer decisiones, citaciones o diligencias a personas que no pudieron ser notificadas directamente. Requieren publicación en el Diario Oficial para efectos legales."
-      },
-      {
-        term: "Estándar Industrial",
-        definition: "Referencia técnica establecida por la Imprenta Nacional: un diario de 130 páginas requiere aproximadamente 86.98 horas de trabajo, considerando todas las fases de producción."
-      },
-      {
-        term: "Estados financieros",
-        definition: "Documentos que muestran la posición económica y financiera de una entidad pública. Algunos deben publicarse en el Diario Oficial según la ley o reglamentación específica de cada sector."
-      },
-      {
-        term: "Grado de Diagramación",
-        definition: "Clasificación de complejidad editorial: Grado 1 (solo texto, 27 pág/h) y Grado 2 (con tablas, gráficos e imágenes, 20 pág/h)."
-      },
-      {
-        term: "Imprenta Nacional de Colombia",
-        definition: "Entidad pública responsable de la administración del Diario Oficial y la publicación de actos del Estado. Garantiza los más altos estándares técnicos y legales."
       },
       {
         term: "Inoponibilidad",
         definition: "Condición de una norma que no ha sido publicada efectivamente en el Diario Oficial. Una norma inoponible no puede exigirse su cumplimiento a los ciudadanos, aunque tenga una fecha de edición anterior."
       },
       {
-        term: "Ley 109 de 1994",
-        definition: "Norma que establece la misión legal de la Imprenta Nacional de Colombia de promulgar la legislación y garantizar la seguridad jurídica del Estado."
-      },
-      {
-        term: "Ley 489 de 1998",
-        definition: "Disposición que regula la estructura de la administración pública y establece requisitos para la validez de actos administrativos, incluyendo la publicación."
-      },
-      {
-        term: "Ley 1437 de 2011",
-        definition: "Código de Procedimiento Administrativo y de lo Contencioso Administrativo que incluye normas sobre publicidad y publicación de actos administrativos."
-      },
-      {
-        term: "Licitaciones",
-        definition: "Procesos de selección de contratistas o proveedores mediante convocatoria pública. Deben publicarse en el Diario Oficial para garantizar transparencia y participación ciudadana."
-      },
-      {
-        term: "Orden de Producción",
-        definition: "Documento interno de la Imprenta Nacional que asigna un documento al proceso de producción editorial, estableciendo prioridades, tiempos y responsables."
-      },
-      {
-        term: "Páginas Estimadas",
-        definition: "Cálculo aproximado de páginas de un documento basado en el número de artículos (aproximadamente 0.67 páginas por artículo), usado para calcular tiempos de producción."
-      },
-      {
-        term: "Preprensa",
-        definition: "Fase de preparación del documento antes de la impresión o publicación digital. Incluye digitalización, asignación de estilos y verificación de formatos."
-      },
-      {
-        term: "Publicidad de la Norma",
-        definition: "Principio constitucional que garantiza que todo acto administrativo sea conocido por los ciudadanos mediante su publicación en el Diario Oficial."
-      },
-      {
-        term: "Radicación",
-        definition: "Acción de registrar e ingresar formalmente un documento al sistema de la Imprenta Nacional para su procesamiento y publicación."
-      },
-      {
-        term: "Resolución",
-        definition: "Acto administrativo que desarrolla una ley o establece disposiciones particulares. Es uno de los tipos de documentos más frecuentes publicados en el Diario Oficial."
-      },
-      {
         term: "Seguridad Jurídica",
         definition: "Garantía de que las normas administrativas son accesibles, claras y están plenamente vigentes cuando se publican. La Imprenta Nacional es responsable de mantener esta seguridad."
-      },
-      {
-        term: "Sincronización de Fecha",
-        definition: "Obligación de que la fecha del Diario Oficial coincida exactamente con la publicación efectiva en la web. Orden judicial del Consejo de Estado asegura que la norma rige desde el momento en que es accesible públicamente."
-      },
-      {
-        term: "Transparencia Institucional",
-        definition: "Principio que guía la Imprenta Nacional: 'Comunicar con transparencia es la mejor impresión'. Compromiso con comunicación clara, oportuna y fidedigna."
-      },
-      {
-        term: "Tratado de Marrakech",
-        definition: "Acuerdo internacional de accesibilidad que garantiza que las personas con discapacidades visuales o auditivas puedan acceder a materiales educativos y de información. Este curso sigue sus estándares de contraste y claridad."
       }
     ];
 
-    // Industrial production standards
     const productionStandards = {
       digitalization: {
         word: 20,
@@ -1033,31 +830,31 @@
       
       container.innerHTML = `
         <div class="slide-enter">
-          <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 mb-4 pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
-              <span class="text-4xl" aria-hidden="true">🧮</span>
+          <div class="text-center mb-6 md:mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 mb-4 pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
+              <span class="text-3xl md:text-4xl" aria-hidden="true">🧮</span>
             </div>
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-2">
+            <h2 class="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
               Calculadora de Planeación Editorial
             </h2>
-            <p class="text-gray-300 max-w-2xl mx-auto text-lg font-semibold">
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm md:text-lg font-semibold">
               Calcula el tiempo de producción necesario para tu documento basado en criterios técnicos reales de la Imprenta Nacional de Colombia.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
             <!-- Input Panel -->
-            <div class="planning-card rounded-xl p-6">
-              <h3 class="text-xl font-display font-bold text-white mb-6" style="color: #FFD700;">📋 Información del Documento</h3>
+            <div class="planning-card rounded-xl p-4 md:p-6">
+              <h3 class="text-lg md:text-xl font-display font-bold text-white mb-4 md:mb-6" style="color: #FFD700;">📋 Información del Documento</h3>
               
-              <div class="space-y-5">
+              <div class="space-y-3 md:space-y-5">
                 <!-- Articles Input -->
                 <div>
-                  <label for="calc-articles" class="block text-base font-semibold text-white mb-2">
+                  <label for="calc-articles" class="block text-sm md:text-base font-semibold text-white mb-2">
                     📄 Número de Artículos
                   </label>
                   <input type="number" id="calc-articles" min="1" max="500" value="25" 
-                    class="planning-input w-full px-4 py-3 rounded-lg text-center"
+                    class="planning-input w-full px-4 py-2 md:py-3 rounded-lg text-center text-sm md:text-base"
                     aria-describedby="articles-help"
                     onchange="updateCalculation()" onkeyup="updateCalculation()">
                   <div id="articles-help" class="text-xs text-gray-300 mt-2 font-semibold">
@@ -1067,21 +864,21 @@
 
                 <!-- Format Selection -->
                 <div>
-                  <label class="block text-base font-semibold text-white mb-3">
+                  <label class="block text-sm md:text-base font-semibold text-white mb-2 md:mb-3">
                     📄 Formato Original del Documento
                   </label>
                   <div class="space-y-2">
-                    <button class="option-button selected w-full border-2 rounded-lg p-4 text-left font-semibold" onclick="selectFormat('word', this)" style="border-color: #FFD700; background: rgba(255, 215, 0, 0.1);">
-                      <div class="font-semibold text-white text-base">📝 Archivo Word (.docx)</div>
-                      <div class="text-sm text-gray-300 mt-1 font-semibold">20 páginas/hora • Estándar óptimo</div>
+                    <button class="option-button selected w-full border-2 rounded-lg p-3 md:p-4 text-left font-semibold text-sm md:text-base" onclick="selectFormat('word', this)" style="border-color: #FFD700; background: rgba(255, 215, 0, 0.1);">
+                      <div class="font-semibold text-white">📝 Archivo Word (.docx)</div>
+                      <div class="text-xs text-gray-300 mt-1 font-semibold">20 páginas/hora • Estándar óptimo</div>
                     </button>
-                    <button class="option-button w-full border-2 border-gray-600 rounded-lg p-4 text-left font-semibold" onclick="selectFormat('scanned', this)">
-                      <div class="font-semibold text-white text-base">🖼️ Documento Escaneado (OCR)</div>
-                      <div class="text-sm text-gray-300 mt-1 font-semibold">10 páginas/hora • Requiere corrección de caracteres</div>
+                    <button class="option-button w-full border-2 border-gray-600 rounded-lg p-3 md:p-4 text-left font-semibold text-sm md:text-base" onclick="selectFormat('scanned', this)">
+                      <div class="font-semibold text-white">🖼️ Documento Escaneado (OCR)</div>
+                      <div class="text-xs text-gray-300 mt-1 font-semibold">10 páginas/hora • Requiere corrección</div>
                     </button>
-                    <button class="option-button w-full border-2 border-gray-600 rounded-lg p-4 text-left font-semibold" onclick="selectFormat('manual', this)">
-                      <div class="font-semibold text-white text-base">⌨️ Texto Manual (Digitación)</div>
-                      <div class="text-sm text-gray-300 mt-1 font-semibold">5 páginas/hora • Más lento pero preciso</div>
+                    <button class="option-button w-full border-2 border-gray-600 rounded-lg p-3 md:p-4 text-left font-semibold text-sm md:text-base" onclick="selectFormat('manual', this)">
+                      <div class="font-semibold text-white">⌨️ Texto Manual (Digitación)</div>
+                      <div class="text-xs text-gray-300 mt-1 font-semibold">5 páginas/hora • Más lento pero preciso</div>
                     </button>
                   </div>
                   <input type="hidden" id="calc-format" value="word">
@@ -1089,17 +886,17 @@
 
                 <!-- Tables/Graphics Selection -->
                 <div>
-                  <label class="block text-base font-semibold text-white mb-3">
+                  <label class="block text-sm md:text-base font-semibold text-white mb-2 md:mb-3">
                     📊 Contenido del Documento
                   </label>
                   <div class="space-y-2">
-                    <button class="option-button selected w-full border-2 rounded-lg p-4 text-left font-semibold" onclick="selectContent('text', this)" style="border-color: #FFD700; background: rgba(255, 215, 0, 0.1);">
-                      <div class="font-semibold text-white text-base">📝 Solo Texto</div>
-                      <div class="text-sm text-gray-300 mt-1 font-semibold">27 páginas/hora • Diagramación simple</div>
+                    <button class="option-button selected w-full border-2 rounded-lg p-3 md:p-4 text-left font-semibold text-sm md:text-base" onclick="selectContent('text', this)" style="border-color: #FFD700; background: rgba(255, 215, 0, 0.1);">
+                      <div class="font-semibold text-white">📝 Solo Texto</div>
+                      <div class="text-xs text-gray-300 mt-1 font-semibold">27 páginas/hora • Diagramación simple</div>
                     </button>
-                    <button class="option-button w-full border-2 border-gray-600 rounded-lg p-4 text-left font-semibold" onclick="selectContent('complex', this)">
-                      <div class="font-semibold text-white text-base">📈 Con Tablas, Gráficos e Imágenes</div>
-                      <div class="text-sm text-gray-300 mt-1 font-semibold">20 páginas/hora • Diagramación compleja (Grado 2)</div>
+                    <button class="option-button w-full border-2 border-gray-600 rounded-lg p-3 md:p-4 text-left font-semibold text-sm md:text-base" onclick="selectContent('complex', this)">
+                      <div class="font-semibold text-white">📈 Con Tablas, Gráficos e Imágenes</div>
+                      <div class="text-xs text-gray-300 mt-1 font-semibold">20 páginas/hora • Diagramación compleja</div>
                     </button>
                   </div>
                   <input type="hidden" id="calc-content" value="text">
@@ -1107,21 +904,21 @@
 
                 <!-- Submission Time -->
                 <div>
-                  <label class="block text-base font-semibold text-white mb-2">
+                  <label class="block text-sm md:text-base font-semibold text-white mb-2">
                     🕓 Hora de Radicación (Envío)
                   </label>
                   <div class="flex gap-2">
                     <div>
                       <label for="calc-hour" class="sr-only">Hora</label>
                       <input type="number" id="calc-hour" min="8" max="15" value="14" 
-                        class="planning-input w-24 px-3 py-3 rounded-lg text-center"
+                        class="planning-input w-16 md:w-20 px-2 md:px-3 py-2 md:py-3 rounded-lg text-center text-sm md:text-base"
                         aria-label="Hora de envío"
                         onchange="updateCalculation()" onkeyup="updateCalculation()">
                     </div>
                     <div>
                       <label for="calc-minute" class="sr-only">Minutos</label>
                       <input type="number" id="calc-minute" min="0" max="59" value="30" 
-                        class="planning-input w-24 px-3 py-3 rounded-lg text-center"
+                        class="planning-input w-16 md:w-20 px-2 md:px-3 py-2 md:py-3 rounded-lg text-center text-sm md:text-base"
                         aria-label="Minutos de envío"
                         onchange="updateCalculation()" onkeyup="updateCalculation()">
                     </div>
@@ -1132,12 +929,12 @@
                 </div>
 
                 <!-- Closure Time Warning -->
-                <div class="bg-red-600/30 border-2 border-red-600 rounded-lg p-4">
-                  <div class="flex items-start gap-3">
-                    <span class="text-3xl flex-shrink-0" aria-hidden="true">🚨</span>
+                <div class="bg-red-600/30 border-2 border-red-600 rounded-lg p-3 md:p-4">
+                  <div class="flex items-start gap-2 md:gap-3">
+                    <span class="text-2xl md:text-3xl flex-shrink-0" aria-hidden="true">🚨</span>
                     <div>
-                      <p class="text-base font-bold text-red-100 mb-1">Cierre de Recepción</p>
-                      <p class="text-sm text-white font-semibold">
+                      <p class="text-sm md:text-base font-bold text-red-100 mb-1">Cierre de Recepción</p>
+                      <p class="text-xs md:text-sm text-white font-semibold">
                         Documentos después de <strong>3:00 p.m. (15:00)</strong> se reciben el <strong>siguiente día hábil</strong>
                       </p>
                     </div>
@@ -1147,36 +944,36 @@
             </div>
 
             <!-- Results Panel -->
-            <div class="space-y-4">
-              <div class="calc-result-box">
+            <div class="space-y-3 md:space-y-4">
+              <div class="calc-result-box rounded-lg p-4 md:p-5 border-3 border-yellow-400" style="background: linear-gradient(135deg, rgba(97, 132, 133, 0.15) 0%, rgba(97, 132, 133, 0.08) 100%);">
                 <div class="text-xs text-gray-600 mb-1 font-semibold">Dificultad de Producción (por INC)</div>
                 <div id="difficulty-display" class="flex items-center gap-3 mb-3">
-                  <span class="difficulty-badge difficulty-low font-bold">🟢 BAJA</span>
+                  <span class="difficulty-badge difficulty-low font-bold text-xs md:text-base">🟢 BAJA</span>
                 </div>
                 <div id="difficulty-rule" class="text-xs text-gray-700 font-semibold">
                   Menos de 20 artículos
                 </div>
               </div>
 
-              <div class="calc-result-box">
+              <div class="calc-result-box rounded-lg p-4 md:p-5 border-3 border-yellow-400" style="background: linear-gradient(135deg, rgba(97, 132, 133, 0.15) 0%, rgba(97, 132, 133, 0.08) 100%);">
                 <div class="text-xs text-gray-600 mb-1 font-semibold">Tiempo de Producción (Estimado)</div>
-                <div class="calc-result-number" id="production-time-display">8h 45m</div>
-                <div class="text-xs text-gray-700 mt-2 font-semibold">
-                  <span id="production-breakdown">Digitalización + Diagramación + Corrección</span>
+                <div class="text-2xl md:text-3xl font-bold mb-1 font-display" style="color: #1d3c50;">8h 45m</div>
+                <div class="text-xs text-gray-700 mt-2 font-semibold" id="production-time-display">
+                  Digitalización + Diagramación + Corrección
                 </div>
               </div>
 
-              <div class="calc-result-box">
+              <div class="calc-result-box rounded-lg p-4 md:p-5 border-3 border-yellow-400" style="background: linear-gradient(135deg, rgba(97, 132, 133, 0.15) 0%, rgba(97, 132, 133, 0.08) 100%);">
                 <div class="text-xs text-gray-600 mb-1 font-semibold">Anticipación Recomendada (Directiva 01/2025)</div>
-                <div class="calc-result-number" id="recommended-days">6</div>
+                <div class="text-2xl md:text-3xl font-bold mb-1 font-display" style="color: #1d3c50;" id="recommended-days">6</div>
                 <div class="text-xs text-gray-700 mt-2 font-semibold">
                   días hábiles desde HOY
                 </div>
               </div>
 
-              <div class="calc-result-box">
+              <div class="calc-result-box rounded-lg p-4 md:p-5 border-3 border-yellow-400" style="background: linear-gradient(135deg, rgba(97, 132, 133, 0.15) 0%, rgba(97, 132, 133, 0.08) 100%);">
                 <div class="text-xs text-gray-600 mb-1 font-semibold">¿Cuándo Enviar Más Tarde?</div>
-                <div id="latest-date-display" class="text-base font-semibold text-gray-800 mb-2">
+                <div id="latest-date-display" class="text-sm md:text-base font-semibold text-gray-800 mb-2">
                   En 6 días, hasta las 2:00 p.m.
                 </div>
                 <div class="text-xs text-gray-700 font-semibold">
@@ -1184,114 +981,24 @@
                 </div>
               </div>
 
-              <div class="info-panel">
-                <p class="text-sm font-semibold mb-2" style="color: #1d3c50;">ℹ️ Nota Importante:</p>
-                <p class="text-sm text-gray-700 leading-relaxed font-semibold">
+              <div class="info-panel rounded-lg p-3 md:p-4">
+                <p class="text-xs md:text-sm font-semibold mb-2" style="color: #1d3c50;">ℹ️ Nota Importante:</p>
+                <p class="text-xs md:text-sm text-gray-700 leading-relaxed font-semibold">
                   La dificultad de producción es determinada por la Imprenta Nacional según criterios técnicos (formato, contenido).
                 </p>
               </div>
 
-              <button onclick="exportCalculation()" class="w-full px-4 py-3 rounded-lg font-semibold transition-all border-2 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white; font-weight: 900;">
+              <button onclick="exportCalculation()" class="w-full px-4 py-3 rounded-lg font-semibold transition-all border-2 border-yellow-400 text-sm md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white; font-weight: 900;">
                 📥 Descargar Plan (TXT)
               </button>
             </div>
           </div>
 
-          <!-- Production Phases Breakdown -->
-          <div class="planning-card rounded-xl p-6 mb-8">
-            <h3 class="text-lg font-display font-bold text-white mb-4" style="color: #FFD700;">⚙️ Desglose de Fases de Producción</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="phases-breakdown">
-              <!-- Rendered dynamically -->
-            </div>
-          </div>
-
-          <!-- Reference Table -->
-          <div class="planning-card rounded-xl p-6 mb-8">
-            <h3 class="text-lg font-display font-bold text-white mb-4" style="color: #FFD700;">📊 Tabla de Referencia - Criterios Técnicos de la INC</h3>
-            <div class="overflow-x-auto">
-              <table class="w-full text-sm text-white font-semibold">
-                <thead>
-                  <tr class="border-b-2 border-white/20">
-                    <th class="text-left py-3 px-3 font-display font-bold" style="color: #FFD700;">Criterio</th>
-                    <th class="text-left py-3 px-3 font-display font-bold" style="color: #FFD700;">Parámetro</th>
-                    <th class="text-left py-3 px-3 font-display font-bold" style="color: #FFD700;">Impacto</th>
-                  </tr>
-                </thead>
-                <tbody class="space-y-2">
-                  <tr class="border-b-2 border-white/10">
-                    <td class="py-3 px-3 font-semibold">Digitalización</td>
-                    <td class="py-3 px-3">Word: 20 pág/h</td>
-                    <td class="py-3 px-3">Base óptima</td>
-                  </tr>
-                  <tr class="border-b-2 border-white/10">
-                    <td class="py-3 px-3"></td>
-                    <td class="py-3 px-3">Escaneado OCR: 10 pág/h</td>
-                    <td class="py-3 px-3">50% de rendimiento (corrección)</td>
-                  </tr>
-                  <tr class="border-b-2 border-white/10">
-                    <td class="py-3 px-3"></td>
-                    <td class="py-3 px-3">Manual: 5 pág/h</td>
-                    <td class="py-3 px-3">25% de rendimiento (digitación)</td>
-                  </tr>
-                  <tr class="border-b-2 border-white/10">
-                    <td class="py-3 px-3 font-semibold">Diagramación</td>
-                    <td class="py-3 px-3">Solo texto: 27 pág/h</td>
-                    <td class="py-3 px-3">Grado 1 - Simple</td>
-                  </tr>
-                  <tr class="border-b-2 border-white/10">
-                    <td class="py-3 px-3"></td>
-                    <td class="py-3 px-3">Con tablas/gráficos: 20 pág/h</td>
-                    <td class="py-3 px-3">Grado 2 - Complejo (26% más tiempo)</td>
-                  </tr>
-                  <tr class="border-b-2 border-white/10">
-                    <td class="py-3 px-3 font-semibold">Corrección</td>
-                    <td class="py-3 px-3">10 páginas/hora</td>
-                    <td class="py-3 px-3">40.9% del tiempo total (cuello de botella)</td>
-                  </tr>
-                  <tr>
-                    <td class="py-3 px-3 font-semibold">Estándar Industrial</td>
-                    <td class="py-3 px-3">130 páginas</td>
-                    <td class="py-3 px-3">86.98 horas (verificado)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="credits-section">
-            <div class="credits-title">📋 Créditos - Calculadora de Planeación Editorial</div>
-            <div class="credits-text">
-              <strong style="color: #1d3c50;">Diseño Conceptual y Educativo:</strong><br>
-              Martha Lucía Ortiz Cárdenas
-            </div>
-            <div class="credits-text">
-              <strong style="color: #1d3c50;">Fuente Institucional:</strong><br>
-              Insumos de la Imprenta Nacional de Colombia - Criterios Técnicos de Producción Editorial
-            </div>
-            <div class="credits-text">
-              <strong style="color: #1d3c50;">Versión:</strong> 01<br>
-              <strong style="color: #1d3c50;">Fecha:</strong> 12 de febrero de 2026
-            </div>
-            <div class="credits-text" style="margin-top: 1.5rem;">
-              <strong style="color: #1d3c50;">Herramientas Utilizadas:</strong>
-            </div>
-            <ul class="credits-list">
-              <li>✓ <strong>HTML5</strong> - Estructura semántica accesible</li>
-              <li>✓ <strong>CSS3</strong> - Diseño responsivo y animaciones</li>
-              <li>✓ <strong>JavaScript Vanilla</strong> - Lógica interactiva</li>
-              <li>✓ <strong>Tailwind CSS 3.4.17</strong> - Framework de utilidades</li>
-              <li>✓ <strong>Google Fonts (Nunito Sans)</strong> - Tipografía principal</li>
-              <li>✓ <strong>Tratado de Marrakech</strong> - Estándares de accesibilidad WCAG AAA</li>
-              <li>✓ <strong>Web Accessibility Initiative (WAI)</strong> - Directrices de accesibilidad</li>
-              <li>✓ <strong>ARIA (Accessible Rich Internet Applications)</strong> - Atributos semánticos</li>
-            </ul>
-          </div>
-
-          <div class="mt-8 flex justify-center gap-4">
-            <button onclick="closeCalculator()" class="px-6 py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 transition-all border-2 border-gray-600">
+          <div class="flex justify-center gap-2 md:gap-4 flex-wrap">
+            <button onclick="closeCalculator()" class="px-4 md:px-6 py-2 md:py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 transition-all border-2 border-gray-600 text-sm md:text-base">
               ← Volver
             </button>
-            <button onclick="startCourse()" class="px-6 py-3 rounded-lg font-display font-bold transition-all border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
+            <button onclick="startCourse()" class="px-4 md:px-6 py-2 md:py-3 rounded-lg font-display font-bold transition-all border-3 border-yellow-400 text-sm md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
               📚 Ir al Curso
             </button>
           </div>
@@ -1338,7 +1045,7 @@
       
       const badgeClass = difficulty.category === 'low' ? 'difficulty-low' : difficulty.category === 'medium' ? 'difficulty-medium' : 'difficulty-high';
       const badgeEmoji = difficulty.category === 'low' ? '🟢' : difficulty.category === 'medium' ? '🟡' : '🔴';
-      document.getElementById('difficulty-display').innerHTML = `<span class="difficulty-badge ${badgeClass} font-bold">${badgeEmoji} ${difficulty.name}</span>`;
+      document.getElementById('difficulty-display').innerHTML = `<span class="difficulty-badge ${badgeClass} font-bold text-xs md:text-base">${badgeEmoji} ${difficulty.name}</span>`;
       
       let rule = '';
       if (articles <= 20) rule = 'Menos de 20 artículos (≈ 13 páginas)';
@@ -1350,37 +1057,18 @@
       const hasTables = content === 'complex';
       const production = calculateProductionHours(pages, format, hasTables, hour, minute);
       const timeDisplay = formatHours(production.total);
-      document.getElementById('production-time-display').textContent = timeDisplay.display;
+      
+      const prodTimeDisplay = document.querySelector('#production-time-display');
+      if (prodTimeDisplay) {
+        prodTimeDisplay.innerHTML = `<div class="text-2xl md:text-3xl font-bold" style="color: #1d3c50;">${timeDisplay.display}</div><div class="text-xs mt-2">Digitalización + Diagramación + Corrección</div>`;
+      }
 
-      const digitPhase = formatHours(production.phases.digitalization);
-      const diagPhase = formatHours(production.phases.diagramming);
-      const corrPhase = formatHours(production.phases.correction);
-
-      document.getElementById('phases-breakdown').innerHTML = `
-        <div class="bg-blue-600/30 border-2 border-blue-400 rounded-lg p-4">
-          <div class="text-base font-bold text-blue-100 mb-2">📄 Digitalización</div>
-          <div class="text-2xl font-bold text-blue-200">${digitPhase.display}</div>
-          <div class="text-xs text-blue-100 mt-2 font-semibold">Formato: ${format === 'word' ? 'Word (óptimo)' : format === 'scanned' ? 'Escaneado (OCR)' : 'Manual (digitación)'}</div>
-        </div>
-        <div class="bg-purple-600/30 border-2 border-purple-400 rounded-lg p-4">
-          <div class="text-base font-bold text-purple-100 mb-2">🎨 Diagramación</div>
-          <div class="text-2xl font-bold text-purple-200">${diagPhase.display}</div>
-          <div class="text-xs text-purple-100 mt-2 font-semibold">Contenido: ${content === 'text' ? 'Solo texto' : 'Con tablas/gráficos'}</div>
-        </div>
-        <div class="bg-yellow-600/30 border-2 border-yellow-400 rounded-lg p-4">
-          <div class="text-base font-bold text-yellow-100 mb-2">✏️ Corrección</div>
-          <div class="text-2xl font-bold text-yellow-200">${corrPhase.display}</div>
-          <div class="text-xs text-yellow-100 mt-2 font-semibold">40.9% del tiempo total</div>
-        </div>
-      `;
+      document.getElementById('recommended-days').textContent = difficulty.days;
 
       let anticipatedDays = difficulty.days;
       if (production.receivedNextDay) {
         anticipatedDays += 1;
       }
-
-      document.getElementById('recommended-days').textContent = anticipatedDays;
-      document.getElementById('production-breakdown').textContent = `${pages} páginas estimadas • ${format === 'word' ? 'Word' : format === 'scanned' ? 'Escaneado' : 'Manual'} • ${content === 'complex' ? 'Con elementos complejos' : 'Solo texto'}`;
 
       const today = new Date();
       let businessDaysToAdd = anticipatedDays;
@@ -1400,8 +1088,6 @@
       const articles = document.getElementById('calc-articles').value;
       const format = document.getElementById('calc-format').value;
       const content = document.getElementById('calc-content').value;
-      const prodTime = document.getElementById('production-time-display').textContent;
-      const days = document.getElementById('recommended-days').textContent;
       const difficulty = getDifficultyCategory(parseInt(articles));
 
       const text = `PLAN DE ENVÍO - DIARIO OFICIAL DE COLOMBIA
@@ -1413,23 +1099,6 @@ DOCUMENTO:
 - Dificultad (INC): ${difficulty.name}
 - Formato: ${format === 'word' ? 'Word' : format === 'scanned' ? 'Escaneado (OCR)' : 'Manual'}
 - Contenido: ${content === 'text' ? 'Solo texto' : 'Con tablas/gráficos'}
-
-CÁLCULOS:
-- Tiempo de producción: ${prodTime}
-- Anticipación requerida: ${days} días hábiles (Directiva Presidencial 01/2025)
-- Hora límite de envío: 2:00 p.m. (incluye 1h buffer de seguridad)
-
-CRITERIOS TÉCNICOS (INC):
-- Estándar industrial: 130 páginas = 86.98 horas
-- Digitalización: 20 pág/h (Word), 10 pág/h (Escaneado), 5 pág/h (Manual)
-- Diagramación: 27 pág/h (texto), 20 pág/h (complejo)
-- Corrección: 10 pág/h (40.9% del tiempo total)
-
-IMPORTANTE:
-✓ Documentos después de 3:00 p.m. se reciben al día siguiente
-✓ La dificultad es determinada por la Imprenta Nacional
-✓ Cumple con orden judicial del Consejo de Estado
-✓ Sincronización: fecha de edición = fecha de cargue web
 
 Generado: ${new Date().toLocaleString('es-CO')}
       `;
@@ -1443,7 +1112,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
       document.body.removeChild(element);
     }
 
-    // Course Data - 8 slides
+    // Course Data
     const slides = [
       {
         id: 1,
@@ -1482,7 +1151,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
           {
             subtitle: "1. Recepción y Verificación",
             icon: "📋",
-            text: "Se revisa que el documento cumpla con los requisitos legales y técnicos (formatos PDF y .txt)."
+            text: "Se revisa que el documento cumpla con los requisitos legales y técnicos."
           },
           {
             subtitle: "2. Programación",
@@ -1490,19 +1159,19 @@ Generado: ${new Date().toLocaleString('es-CO')}
             text: "Se asigna una orden de producción y se crea la hoja de ruta."
           },
           {
-            subtitle: "3. Digitalización y Preprensa",
+            subtitle: "3. Digitalización",
             icon: "💻",
-            text: "Los archivos se convierten según su formato y se les asignan estilos editoriales según la jerarquía normativa."
+            text: "Los archivos se convierten según su formato y se les asignan estilos editoriales."
           },
           {
-            subtitle: "4. Corrección y Diagramación",
+            subtitle: "4. Corrección",
             icon: "✏️",
-            text: "Se realiza una corrección ortotipográfica rigurosa (sin cambiar el sentido de la ley) y se distribuyen los textos en plantillas profesionales."
+            text: "Revisión rigurosa de ortografía y formato sin cambiar el sentido de la ley."
           },
           {
             subtitle: "5. Cierre y Cargue",
             icon: "🚀",
-            text: "Verificación final de \"cabeza y cola\" antes de subir el archivo al portal web."
+            text: "Verificación final antes de publicar en el portal web."
           }
         ],
         quiz: {
@@ -1520,17 +1189,17 @@ Generado: ${new Date().toLocaleString('es-CO')}
           {
             subtitle: "Proceso Humano y Técnico",
             icon: "👷",
-            text: "Un diario estándar de 130 páginas requiere aproximadamente 87 horas de trabajo, involucrando a un equipo de hasta 17 personas en 11 actividades distintas."
+            text: "Un diario estándar de 130 páginas requiere aproximadamente 87 horas de trabajo, involucrando a un equipo de hasta 17 personas."
           },
           {
             subtitle: "Control de Calidad",
             icon: "🔍",
-            text: "La revisión no puede saltarse; se debe cotejar cada palabra del original contra el archivo procesado para evitar errores que comprometan la integridad del acto administrativo."
+            text: "La revisión no puede saltarse; se debe cotejar cada palabra del original contra el archivo procesado."
           },
           {
             subtitle: "Capacidad Instalada",
             icon: "📈",
-            text: "Existen estándares diarios de producción por trabajador; el exceso de documentos de última hora genera cuellos de botella que ponen en riesgo la puntualidad de toda la edición."
+            text: "Existen estándares diarios de producción por trabajador; el exceso de documentos de última hora genera cuellos de botella."
           }
         ],
         highlight: {
@@ -1567,7 +1236,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
         ],
         highlight: {
           icon: "⚡",
-          text: "Orden judicial del Consejo de Estado: La fecha del Diario debe coincidir exactamente con la publicación efectiva en web para asegurar la legalidad."
+          text: "Orden judicial del Consejo de Estado: La fecha del Diario debe coincidir exactamente con la publicación efectiva en web."
         },
         quiz: {
           question: "¿A qué hora se cierra la recepción ordinaria de documentos?",
@@ -1589,12 +1258,12 @@ Generado: ${new Date().toLocaleString('es-CO')}
           {
             subtitle: "Entre 21 y 50 artículos",
             icon: "📑",
-            text: "Radicar con 10 días hábiles de antelación (Directiva Presidencial 01/2025)."
+            text: "Radicar con 10 días hábiles de antelación."
           },
           {
             subtitle: "Más de 50 artículos",
             icon: "📚",
-            text: "Radicar con 15 días hábiles de antelación (Directiva Presidencial 01/2025)."
+            text: "Radicar con 15 días hábiles de antelación."
           }
         ],
         highlight: {
@@ -1616,17 +1285,17 @@ Generado: ${new Date().toLocaleString('es-CO')}
           {
             subtitle: "Inoponibilidad",
             icon: "🚫",
-            text: "Una norma que no ha sido cargada efectivamente en la web es inoponible; es decir, no puede exigirse su cumplimiento a los ciudadanos aunque tenga una fecha de 'inserción' anterior."
+            text: "Una norma que no ha sido cargada efectivamente en la web es inoponible; es decir, no puede exigirse su cumplimiento a los ciudadanos."
           },
           {
             subtitle: "Seguridad Jurídica",
             icon: "⚖️",
-            text: "La disparidad entre la fecha del diario y el cargue real afecta la legalidad, ya que las normas podrían empezar a 'regir' sin que nadie pueda consultarlas."
+            text: "La disparidad entre la fecha del diario y el cargue real afecta la legalidad."
           },
           {
             subtitle: "Responsabilidad Administrativa",
             icon: "⚡",
-            text: "El retraso puede derivar en incidentes de desacato, multas y procesos disciplinarios o penales (como prevaricato por omisión) para los funcionarios responsables."
+            text: "El retraso puede derivar en incidentes de desacato, multas y procesos disciplinarios para los funcionarios responsables."
           }
         ],
         highlight: {
@@ -1657,7 +1326,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
           },
           {
             subtitle: "Llamado a la Acción",
-            icon: "📣",
+            icon: "🎯",
             text: "La integridad de la memoria jurídica del país no depende solo de la Imprenta Nacional, sino de la planificación oportuna de todas las entidades del Estado."
           },
           {
@@ -1720,7 +1389,6 @@ Generado: ${new Date().toLocaleString('es-CO')}
       }
     ];
 
-    // Planning Game Scenarios
     const planningScenarios = [
       {
         id: 1,
@@ -1733,7 +1401,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
         timeMinute: 45,
         dayOffset: 0,
         correct: true,
-        feedback: "✅ ¡CORRECTO! Documento recibido antes de 3 p.m., formato óptimo (Word), sin complejidad. Solo necesita 6 días hábiles. La planeación está perfecta.",
+        feedback: "✅ ¡CORRECTO! Documento recibido antes de 3 p.m., formato óptimo. Solo necesita 6 días hábiles.",
         difficulty: "easy"
       },
       {
@@ -1747,7 +1415,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
         timeMinute: 15,
         dayOffset: 0,
         correct: false,
-        feedback: "❌ RIESGO DETECTADO: Se recibe después de 3 p.m. = siguiente día. Con 35 artículos necesita 10 días hábiles. Pero además es escaneado (OCR) con tablas: +50% tiempo digitalización, +26% diagramación. Retraso casi seguro.",
+        feedback: "❌ RIESGO DETECTADO: Se recibe después de 3 p.m. = siguiente día. Con 35 artículos necesita 10 días hábiles.",
         difficulty: "medium"
       },
       {
@@ -1762,13 +1430,13 @@ Generado: ${new Date().toLocaleString('es-CO')}
         daysPlannedAhead: 14,
         dayOffset: 0,
         correct: true,
-        feedback: "✅ ¡EXCELENTE PLANEACIÓN! Envío oportuno, formato Word, pero con tablas (Grado 2). Requiere 15 días pero se envió con 14 de anticipación + buffer del mismo día. Cubierto estratégicamente. ¡Bravo!",
+        feedback: "✅ ¡EXCELENTE PLANEACIÓN! Requiere 15 días pero se envió con 14 de anticipación + buffer del mismo día.",
         difficulty: "hard"
       },
       {
         id: 4,
         title: "Caso 4: Sorpresa Manual en Último Minuto",
-        description: "Una enmienda urgente de 8 artículos llega como texto manuscrito a digitalizar a las 3:02 p.m. Se necesita hoy.",
+        description: "Una enmienda urgente de 8 artículos llega como texto manuscrito a digitalizar a las 3:02 p.m.",
         articles: 8,
         format: "manual",
         content: "text",
@@ -1777,7 +1445,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
         dayOffset: 0,
         urgent: true,
         correct: false,
-        feedback: "❌ CRISIS INMINENTE: Llega 2 min después del cierre + formato manual (5 pág/h, 80% más lento). Técnicamente se recibe mañana. Aunque sea pequeño, el tiempo de digitalización hace imposible hoy. Lección: Planificar anticipadamente.",
+        feedback: "❌ CRISIS INMINENTE: Llega 2 min después del cierre + formato manual (5 pág/h). Técnicamente se recibe mañana.",
         difficulty: "hard"
       },
       {
@@ -1792,7 +1460,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
         daysPlannedAhead: 11,
         dayOffset: 0,
         correct: true,
-        feedback: "✅ ¡PERFECTO! Planeación impecable: 11 días para documento de 28 artículos (requiere 10 mín), formato óptimo (Word), sin complejidad. Envío en horario seguro. Corresponsabilidad en acción.",
+        feedback: "✅ ¡PERFECTO! Planeación impecable: 11 días para documento de 28 artículos (requiere 10 mín), formato óptimo.",
         difficulty: "medium"
       }
     ];
@@ -1805,23 +1473,19 @@ Generado: ${new Date().toLocaleString('es-CO')}
     let currentPlanningCase = 0;
     let planningAnswers = {};
     let progressData = [];
-
-    // Config
-    const defaultConfig = {
-      course_title: "Curso: El Diario Oficial",
-      welcome_message: "Bienvenido al curso interactivo sobre el Diario Oficial de Colombia"
-    };
-
-    let config = { ...defaultConfig };
+    let quizPercentage = 0;
+    let userData = {};
 
     // SDK Initialization
     async function initSDKs() {
       if (window.elementSdk) {
         await window.elementSdk.init({
-          defaultConfig,
+          defaultConfig: {
+            course_title: "Curso: El Diario Oficial",
+            welcome_message: "Bienvenido al curso interactivo sobre el Diario Oficial de Colombia"
+          },
           onConfigChange: async (newConfig) => {
-            config = { ...defaultConfig, ...newConfig };
-            applyConfig();
+            // Apply config changes
           },
           mapToCapabilities: () => ({
             recolorables: [],
@@ -1830,11 +1494,10 @@ Generado: ${new Date().toLocaleString('es-CO')}
             fontSizeable: undefined
           }),
           mapToEditPanelValues: (cfg) => new Map([
-            ["course_title", cfg.course_title || defaultConfig.course_title],
-            ["welcome_message", cfg.welcome_message || defaultConfig.welcome_message]
+            ["course_title", cfg.course_title || "Curso: El Diario Oficial"],
+            ["welcome_message", cfg.welcome_message || "Bienvenido al curso..."]
           ])
         });
-        config = { ...defaultConfig, ...window.elementSdk.config };
       }
 
       if (window.dataSdk) {
@@ -1847,19 +1510,6 @@ Generado: ${new Date().toLocaleString('es-CO')}
           console.error("Failed to initialize Data SDK");
         }
       }
-
-      applyConfig();
-    }
-
-    function applyConfig() {
-      const title = config.course_title || defaultConfig.course_title;
-      const welcome = config.welcome_message || defaultConfig.welcome_message;
-      
-      const mainTitle = document.getElementById('main-title');
-      const welcomeText = document.getElementById('welcome-text');
-      
-      if (mainTitle) mainTitle.textContent = title;
-      if (welcomeText) welcomeText.textContent = welcome;
     }
 
     // Navigation Functions
@@ -1871,17 +1521,23 @@ Generado: ${new Date().toLocaleString('es-CO')}
       updateProgress();
     }
 
+    function backToHome() {
+      document.getElementById('course-screen').classList.add('hidden');
+      document.getElementById('welcome-screen').classList.remove('hidden');
+      currentSlide = 0;
+    }
+
     function renderSlide() {
       const slide = slides[currentSlide];
       const container = document.getElementById('slide-container');
       
       let contentHTML = slide.content.map((item, idx) => `
-        <div class="bg-white/15 backdrop-blur rounded-xl p-6 card-hover fade-enter border-l-4 border-yellow-400" style="animation-delay: ${idx * 0.1}s">
-          <div class="flex items-start gap-4">
-            <div class="text-4xl flex-shrink-0" aria-hidden="true">${item.icon}</div>
+        <div class="bg-white/15 backdrop-blur rounded-lg md:rounded-xl p-3 md:p-6 card-hover fade-enter border-l-4 border-yellow-400" style="animation-delay: ${idx * 0.1}s">
+          <div class="flex items-start gap-2 md:gap-4">
+            <div class="text-3xl md:text-4xl flex-shrink-0" aria-hidden="true">${item.icon}</div>
             <div>
-              <h3 class="font-display-bold text-lg text-white mb-2 font-bold" style="color: #FFD700;">${item.subtitle}</h3>
-              <p class="text-white leading-relaxed font-semibold text-base">${item.text}</p>
+              <h3 class="font-display-bold text-base md:text-lg text-white mb-2 font-bold" style="color: #FFD700;">${item.subtitle}</h3>
+              <p class="text-white leading-relaxed font-semibold text-sm md:text-base">${item.text}</p>
             </div>
           </div>
         </div>
@@ -1889,10 +1545,10 @@ Generado: ${new Date().toLocaleString('es-CO')}
 
       if (slide.highlight) {
         contentHTML += `
-          <div class="mt-6 bg-gradient-to-r from-teal-600/40 to-cyan-600/40 border-3 border-yellow-400 rounded-xl p-6 fade-enter" style="animation-delay: 0.4s">
-            <div class="flex items-center gap-4">
-              <div class="text-5xl flex-shrink-0" aria-hidden="true">${slide.highlight.icon}</div>
-              <p class="text-white font-display-bold text-lg font-bold" style="color: #FFD700;">${slide.highlight.text}</p>
+          <div class="mt-4 md:mt-6 bg-gradient-to-r from-teal-600/40 to-cyan-600/40 border-3 border-yellow-400 rounded-lg md:rounded-xl p-4 md:p-6 fade-enter" style="animation-delay: 0.4s">
+            <div class="flex items-center gap-3 md:gap-4">
+              <div class="text-4xl md:text-5xl flex-shrink-0" aria-hidden="true">${slide.highlight.icon}</div>
+              <p class="text-white font-display-bold text-base md:text-lg font-bold" style="color: #FFD700;">${slide.highlight.text}</p>
             </div>
           </div>
         `;
@@ -1900,17 +1556,17 @@ Generado: ${new Date().toLocaleString('es-CO')}
 
       container.innerHTML = `
         <div class="slide-enter">
-          <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br ${slide.color} mb-4 shadow-lg pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
-              <span class="text-5xl" aria-hidden="true">${slide.icon}</span>
+          <div class="text-center mb-6 md:mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-gradient-to-br ${slide.color} mb-4 shadow-lg pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
+              <span class="text-3xl md:text-5xl" aria-hidden="true">${slide.icon}</span>
             </div>
-            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-2">
+            <h2 class="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
               ${slide.title}
             </h2>
-            <p class="text-gray-300 text-lg font-semibold">Módulo ${slide.id} de ${slides.length}</p>
+            <p class="text-gray-300 text-xs md:text-lg font-semibold">Módulo ${slide.id} de ${slides.length}</p>
           </div>
           
-          <div class="space-y-4">
+          <div class="space-y-3 md:space-y-4">
             ${contentHTML}
           </div>
         </div>
@@ -1931,7 +1587,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
     function renderDots() {
       const dotsContainer = document.getElementById('slide-dots');
       dotsContainer.innerHTML = slides.map((_, idx) => `
-        <button onclick="goToSlide(${idx})" role="tab" aria-selected="${idx === currentSlide}" class="w-4 h-4 rounded-full transition-all" style="background: ${idx === currentSlide ? '#FFD700' : 'rgba(255, 215, 0, 0.3)'}; border: 2px solid ${idx === currentSlide ? '#FFD700' : 'rgba(255, 215, 0, 0.5)'}"></button>
+        <button onclick="goToSlide(${idx})" role="tab" aria-selected="${idx === currentSlide}" class="w-3 h-3 md:w-4 md:h-4 rounded-full transition-all" style="background: ${idx === currentSlide ? '#FFD700' : 'rgba(255, 215, 0, 0.3)'}; border: 2px solid ${idx === currentSlide ? '#FFD700' : 'rgba(255, 215, 0, 0.5)'}"></button>
       `).join('');
     }
 
@@ -1984,22 +1640,22 @@ Generado: ${new Date().toLocaleString('es-CO')}
 
       container.innerHTML = `
         <div class="slide-enter max-w-2xl mx-auto">
-          <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 mb-4 pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
-              <span class="text-4xl" aria-hidden="true">❓</span>
+          <div class="text-center mb-6 md:mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 mb-4 pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
+              <span class="text-3xl md:text-4xl" aria-hidden="true">❓</span>
             </div>
-            <p class="text-gray-300 mb-2 text-lg font-bold">Pregunta ${currentQuestion + 1} de ${slides.length}</p>
-            <div class="progress-bar-inc max-w-xs mx-auto mb-6">
+            <p class="text-gray-300 mb-2 text-xs md:text-lg font-bold">Pregunta ${currentQuestion + 1} de ${slides.length}</p>
+            <div class="progress-bar-inc max-w-xs mx-auto mb-4 md:mb-6">
               <div class="progress-bar-inc-fill" style="width: ${((currentQuestion + 1) / slides.length) * 100}%"></div>
             </div>
-            <h2 class="font-display text-2xl md:text-3xl font-bold text-white">
+            <h2 class="font-display text-lg md:text-2xl lg:text-3xl font-bold text-white">
               ${quiz.question}
             </h2>
           </div>
           
-          <div class="space-y-3">
+          <div class="space-y-2 md:space-y-3">
             ${quiz.options.map((option, idx) => {
-              let classes = 'quiz-option w-full p-5 rounded-lg border-2 text-left transition-all font-semibold ';
+              let classes = 'quiz-option w-full p-3 md:p-5 rounded-lg border-2 text-left transition-all font-semibold text-sm md:text-base ';
               let icon = '';
               
               if (selectedAnswer !== undefined) {
@@ -2018,11 +1674,11 @@ Generado: ${new Date().toLocaleString('es-CO')}
               
               return `
                 <button onclick="selectAnswer(${idx})" class="${classes}" ${selectedAnswer !== undefined ? 'disabled' : ''}>
-                  <div class="flex items-center gap-4">
-                    <span class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0" style="background: ${selectedAnswer !== undefined ? 'transparent' : 'rgba(255, 215, 0, 0.3)'}">
+                  <div class="flex items-center gap-2 md:gap-4">
+                    <span class="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-xs md:text-lg flex-shrink-0" style="background: ${selectedAnswer !== undefined ? 'transparent' : 'rgba(255, 215, 0, 0.3)'}">
                       ${icon || String.fromCharCode(65 + idx)}
                     </span>
-                    <span class="font-semibold text-base">${option}</span>
+                    <span class="font-semibold text-sm md:text-base">${option}</span>
                   </div>
                 </button>
               `;
@@ -2030,11 +1686,11 @@ Generado: ${new Date().toLocaleString('es-CO')}
           </div>
           
           ${selectedAnswer !== undefined ? `
-            <div class="mt-8 text-center fade-enter">
-              <p class="text-xl mb-4 font-bold ${selectedAnswer === quiz.correct ? 'text-green-300' : 'text-red-300'}">
+            <div class="mt-6 md:mt-8 text-center fade-enter">
+              <p class="text-base md:text-xl mb-3 md:mb-4 font-bold ${selectedAnswer === quiz.correct ? 'text-green-300' : 'text-red-300'}">
                 ${selectedAnswer === quiz.correct ? '🎉 ¡Correcto!' : '😕 Incorrecto. La respuesta correcta era: ' + quiz.options[quiz.correct]}
               </p>
-              <button onclick="nextQuestion()" class="px-8 py-3 rounded-lg font-display font-bold transition-all border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
+              <button onclick="nextQuestion()" class="px-6 md:px-8 py-2 md:py-3 rounded-lg font-display font-bold transition-all border-3 border-yellow-400 text-sm md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
                 ${currentQuestion < slides.length - 1 ? 'Siguiente Pregunta →' : 'Ir al Juego 🎮'}
               </button>
             </div>
@@ -2079,71 +1735,71 @@ Generado: ${new Date().toLocaleString('es-CO')}
 
       container.innerHTML = `
         <div class="slide-enter max-w-3xl mx-auto">
-          <div class="planning-card rounded-2xl p-8 mb-6 border-3 border-yellow-400">
-            <div class="flex items-start justify-between mb-4">
+          <div class="planning-card rounded-xl p-4 md:p-8 mb-4 md:mb-6 border-3 border-yellow-400">
+            <div class="flex items-start justify-between mb-3 md:mb-4 gap-3 flex-wrap">
               <div>
-                <div class="text-lg font-semibold mb-2 font-bold" style="color: #FFD700;">Caso ${currentPlanningCase + 1} de ${planningScenarios.length}</div>
-                <h2 class="font-display text-3xl font-bold text-white mb-2">${caseData.title}</h2>
-                <p class="text-white text-lg font-bold">${caseData.description}</p>
+                <div class="text-sm md:text-lg font-semibold mb-1 md:mb-2 font-bold" style="color: #FFD700;">Caso ${currentPlanningCase + 1} de ${planningScenarios.length}</div>
+                <h2 class="font-display text-lg md:text-3xl font-bold text-white mb-2">${caseData.title}</h2>
+                <p class="text-white text-sm md:text-lg font-bold">${caseData.description}</p>
               </div>
-              <div class="text-6xl" aria-hidden="true">${caseData.difficulty === 'easy' ? '🟢' : caseData.difficulty === 'medium' ? '🟡' : '🔴'}</div>
+              <div class="text-4xl md:text-6xl flex-shrink-0" aria-hidden="true">${caseData.difficulty === 'easy' ? '🟢' : caseData.difficulty === 'medium' ? '🟡' : '🔴'}</div>
             </div>
           </div>
 
-          <div class="grid grid-cols-4 gap-3 mb-6">
-            <div class="planning-card rounded-lg p-4 border-2 border-yellow-400">
-              <div class="text-2xl font-bold mb-1 font-display" style="color: #FFD700;">${caseData.articles}</div>
-              <div class="text-sm text-white font-bold">Artículos</div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-4 md:mb-6">
+            <div class="planning-card rounded-lg p-3 md:p-4 border-2 border-yellow-400">
+              <div class="text-xl md:text-2xl font-bold mb-1 font-display" style="color: #FFD700;">${caseData.articles}</div>
+              <div class="text-xs md:text-sm text-white font-bold">Artículos</div>
             </div>
-            <div class="planning-card rounded-lg p-4 border-2 border-yellow-400">
-              <div class="text-2xl font-bold mb-1 font-display" style="color: #FFD700;">${String(caseData.timeHour).padStart(2, '0')}:${String(caseData.timeMinute).padStart(2, '0')}</div>
-              <div class="text-sm text-white font-bold">Hora Envío</div>
+            <div class="planning-card rounded-lg p-3 md:p-4 border-2 border-yellow-400">
+              <div class="text-xl md:text-2xl font-bold mb-1 font-display" style="color: #FFD700;">${String(caseData.timeHour).padStart(2, '0')}:${String(caseData.timeMinute).padStart(2, '0')}</div>
+              <div class="text-xs md:text-sm text-white font-bold">Hora Envío</div>
             </div>
-            <div class="planning-card rounded-lg p-4 border-2 border-yellow-400">
-              <div class="text-2xl font-bold mb-1 font-display text-yellow-300" style="color: #FFD700;">${caseData.format}</div>
-              <div class="text-sm text-white font-bold">Formato</div>
+            <div class="planning-card rounded-lg p-3 md:p-4 border-2 border-yellow-400">
+              <div class="text-xl md:text-2xl font-bold mb-1 font-display text-yellow-300" style="color: #FFD700;">${caseData.format}</div>
+              <div class="text-xs md:text-sm text-white font-bold">Formato</div>
             </div>
-            <div class="planning-card rounded-lg p-4 border-2 border-yellow-400">
-              <div class="text-2xl font-bold mb-1 font-display" style="color: #FFD700;">${caseData.content}</div>
-              <div class="text-sm text-white font-bold">Contenido</div>
+            <div class="planning-card rounded-lg p-3 md:p-4 border-2 border-yellow-400">
+              <div class="text-xl md:text-2xl font-bold mb-1 font-display" style="color: #FFD700;">${caseData.content}</div>
+              <div class="text-xs md:text-sm text-white font-bold">Contenido</div>
             </div>
           </div>
 
-          <div class="bg-gray-900/70 rounded-lg p-5 mb-6 border-3 border-yellow-400">
-            <div class="font-display-bold text-white mb-4 font-bold text-lg" style="color: #FFD700;">📋 Recuerda - Criterios Técnicos INC:</div>
-            <ul class="text-sm text-white space-y-2 font-bold">
+          <div class="bg-gray-900/70 rounded-lg p-4 md:p-5 mb-4 md:mb-6 border-3 border-yellow-400">
+            <div class="font-display-bold text-white mb-3 md:mb-4 font-bold text-sm md:text-lg" style="color: #FFD700;">ℹ️ Recuerda - Criterios Técnicos INC:</div>
+            <ul class="text-xs md:text-sm text-white space-y-1 md:space-y-2 font-bold">
               <li>📄 <strong>Digitalización:</strong> Word 20 pág/h | Escaneado 10 pág/h | Manual 5 pág/h</li>
               <li>🎨 <strong>Diagramación:</strong> Texto 27 pág/h | Con tablas 20 pág/h</li>
-              <li>✏️ <strong>Corrección:</strong> 10 pág/h (40.9% del tiempo = cuello de botella)</li>
+              <li>✏️ <strong>Corrección:</strong> 10 pág/h (40.9% del tiempo)</li>
               <li>⏰ <strong>Cierre:</strong> Antes de 3:00 p.m. = hoy | Después = mañana</li>
-              <li>📅 <strong>Anticipación:</strong> ≤20 art (6 días) | 21-50 (10 días) | >50 (15 días)</li>
+              <li>📅 <strong>Anticipación:</strong> ≤20 (6 días) | 21-50 (10 días) | >50 (15 días)</li>
             </ul>
           </div>
 
-          <div class="mb-6">
-            <h3 class="text-2xl font-display font-bold text-white mb-4 font-bold" style="color: #FFD700;">🤔 ¿Puede este documento publicarse HOY?</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <button onclick="answerPlanning(true)" class="planning-card rounded-lg p-8 text-center transition-all border-3 ${answered && !isCorrect && userAnswer === true ? 'border-red-500 bg-red-600/20' : answered && isCorrect && userAnswer === true ? 'border-green-500 bg-green-600/20' : 'border-yellow-400'} ${!answered ? 'hover:border-yellow-300 cursor-pointer' : ''}" ${answered ? 'disabled' : ''}>
-                <div class="text-5xl mb-3" aria-hidden="true">✅</div>
-                <div class="font-display-bold text-white text-lg font-bold">SÍ, SE PUBLICA</div>
+          <div class="mb-4 md:mb-6">
+            <h3 class="text-lg md:text-2xl font-display font-bold text-white mb-3 md:mb-4 font-bold" style="color: #FFD700;">🤔 ¿Puede este documento publicarse HOY?</h3>
+            <div class="grid grid-cols-2 gap-2 md:gap-4">
+              <button onclick="answerPlanning(true)" class="planning-card rounded-lg p-4 md:p-8 text-center transition-all border-3 ${answered && !isCorrect && userAnswer === true ? 'border-red-500 bg-red-600/20' : answered && isCorrect && userAnswer === true ? 'border-green-500 bg-green-600/20' : 'border-yellow-400'} ${!answered ? 'hover:border-yellow-300 cursor-pointer' : ''}" ${answered ? 'disabled' : ''}>
+                <div class="text-4xl md:text-5xl mb-2 md:mb-3" aria-hidden="true">✅</div>
+                <div class="font-display-bold text-white text-sm md:text-lg font-bold">SÍ, SE PUBLICA</div>
               </button>
-              <button onclick="answerPlanning(false)" class="planning-card rounded-lg p-8 text-center transition-all border-3 ${answered && !isCorrect && userAnswer === false ? 'border-red-500 bg-red-600/20' : answered && isCorrect && userAnswer === false ? 'border-green-500 bg-green-600/20' : 'border-yellow-400'} ${!answered ? 'hover:border-yellow-300 cursor-pointer' : ''}" ${answered ? 'disabled' : ''}>
-                <div class="text-5xl mb-3" aria-hidden="true">❌</div>
-                <div class="font-display-bold text-white text-lg font-bold">NO SE PUBLICA</div>
+              <button onclick="answerPlanning(false)" class="planning-card rounded-lg p-4 md:p-8 text-center transition-all border-3 ${answered && !isCorrect && userAnswer === false ? 'border-red-500 bg-red-600/20' : answered && isCorrect && userAnswer === false ? 'border-green-500 bg-green-600/20' : 'border-yellow-400'} ${!answered ? 'hover:border-yellow-300 cursor-pointer' : ''}" ${answered ? 'disabled' : ''}>
+                <div class="text-4xl md:text-5xl mb-2 md:mb-3" aria-hidden="true">❌</div>
+                <div class="font-display-bold text-white text-sm md:text-lg font-bold">NO SE PUBLICA</div>
               </button>
             </div>
           </div>
 
           ${answered ? `
-            <div class="rounded-lg p-6 mb-6 border-3 ${isCorrect ? 'bg-green-600/25 border-green-400' : 'bg-red-600/25 border-red-400'} ${isCorrect ? 'result-success' : 'result-error'}">
-              <div class="text-2xl font-bold mb-3 font-display ${isCorrect ? 'text-green-200' : 'text-red-200'}">
+            <div class="rounded-lg p-4 md:p-6 mb-4 md:mb-6 border-3 ${isCorrect ? 'bg-green-600/25 border-green-400' : 'bg-red-600/25 border-red-400'} ${isCorrect ? 'result-success' : 'result-error'}">
+              <div class="text-lg md:text-2xl font-bold mb-2 md:mb-3 font-display ${isCorrect ? 'text-green-200' : 'text-red-200'}">
                 ${isCorrect ? '🏆 ¡CORRECTO!' : '⚠️ INCORRECTO'}
               </div>
-              <p class="text-white mb-4 leading-relaxed font-semibold text-base">${caseData.feedback}</p>
-              ${isCorrect ? `<div class="font-bold text-lg" style="color: #FFD700;">+10 Puntos 🎉</div>` : `<div class="text-red-200 font-bold text-base">Puntos: 0</div>`}
+              <p class="text-white mb-2 md:mb-4 leading-relaxed font-semibold text-sm md:text-base">${caseData.feedback}</p>
+              ${isCorrect ? `<div class="font-bold text-base md:text-lg" style="color: #FFD700;">+10 Puntos 🎉</div>` : `<div class="text-red-200 font-bold text-sm md:text-base">Puntos: 0</div>`}
             </div>
 
-            <button onclick="nextPlanningCase()" class="w-full px-8 py-4 rounded-lg font-display font-bold transition-all border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
+            <button onclick="nextPlanningCase()" class="w-full px-6 md:px-8 py-3 md:py-4 rounded-lg font-display font-bold transition-all border-3 border-yellow-400 text-sm md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
               ${currentPlanningCase < planningScenarios.length - 1 ? 'Siguiente Caso →' : '🎮 Ir al Ejercicio Práctico'}
             </button>
           ` : ''}
@@ -2186,22 +1842,22 @@ Generado: ${new Date().toLocaleString('es-CO')}
       
       container.innerHTML = `
         <div class="slide-enter max-w-3xl mx-auto">
-          <div class="exercise-card">
-            <h2 class="exercise-title text-2xl font-bold">📋 Formulario de Publicación Editorial</h2>
-            <p class="text-white mb-6 font-semibold text-base">Completa este formulario realista. Basándote en la información que ingreses, evalúa si tu documento podrá publicarse dentro de los plazos.</p>
+          <div class="exercise-card rounded-xl p-4 md:p-6">
+            <h2 class="font-display text-lg md:text-2xl font-bold text-white mb-2" style="color: #FFD700;">📋 Formulario de Publicación Editorial</h2>
+            <p class="text-white mb-4 md:mb-6 font-semibold text-sm md:text-base">Completa este formulario realista. Basándote en la información que ingreses, evalúa si tu documento podrá publicarse dentro de los plazos.</p>
           </div>
 
-          <form id="publication-form" onsubmit="submitPublicationForm(event)" class="space-y-6">
+          <form id="publication-form" onsubmit="submitPublicationForm(event)" class="space-y-3 md:space-y-6">
             <!-- Entity Info -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">🏛️ Entidad Generadora</label>
-              <input type="text" placeholder="Ej: Ministerio del Interior" required class="planning-input w-full px-4 py-3 rounded-lg text-base font-semibold" id="entity-name">
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">🏛️ Entidad Generadora</label>
+              <input type="text" placeholder="Ej: Ministerio del Interior" required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="entity-name">
             </div>
 
             <!-- Document Category -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">📄 Categoría de Documento (INC)</label>
-              <select required class="planning-input w-full px-4 py-3 rounded-lg text-base font-semibold" id="doc-type">
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">📄 Categoría de Documento (INC)</label>
+              <select required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="doc-type">
                 <option value="">-- Selecciona una categoría --</option>
                 <optgroup label="1. Normativa Constitucional y Legislativa">
                   <option value="constitutional">Actos legislativos</option>
@@ -2244,81 +1900,81 @@ Generado: ${new Date().toLocaleString('es-CO')}
             </div>
 
             <!-- Articles Count -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">📑 Cantidad de Artículos</label>
-              <input type="number" min="1" max="500" placeholder="Ej: 25" required class="planning-input w-full px-4 py-3 rounded-lg text-base font-semibold" id="article-count">
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">📑 Cantidad de Artículos</label>
+              <input type="number" min="1" max="500" placeholder="Ej: 25" required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="article-count">
             </div>
 
             <!-- Original Format -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">💾 Formato Original</label>
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">💾 Formato Original</label>
               <div class="space-y-2">
-                <label class="flex items-center gap-3 p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
-                  <input type="radio" name="format" value="word" checked class="w-5 h-5">
-                  <span class="text-white font-semibold">📝 Archivo Word (óptimo)</span>
+                <label class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
+                  <input type="radio" name="format" value="word" checked class="w-4 h-4 md:w-5 md:h-5">
+                  <span class="text-white font-semibold text-sm md:text-base">📝 Archivo Word (óptimo)</span>
                 </label>
-                <label class="flex items-center gap-3 p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
-                  <input type="radio" name="format" value="scanned" class="w-5 h-5">
-                  <span class="text-white font-semibold">🖼️ Documento Escaneado (OCR)</span>
+                <label class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
+                  <input type="radio" name="format" value="scanned" class="w-4 h-4 md:w-5 md:h-5">
+                  <span class="text-white font-semibold text-sm md:text-base">🖼️ Documento Escaneado (OCR)</span>
                 </label>
-                <label class="flex items-center gap-3 p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
-                  <input type="radio" name="format" value="manual" class="w-5 h-5">
-                  <span class="text-white font-semibold">⌨️ Texto Manual (digitación)</span>
+                <label class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
+                  <input type="radio" name="format" value="manual" class="w-4 h-4 md:w-5 md:h-5">
+                  <span class="text-white font-semibold text-sm md:text-base">⌨️ Texto Manual (digitación)</span>
                 </label>
               </div>
             </div>
 
             <!-- Content Complexity -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">📊 Complejidad del Contenido</label>
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">📊 Complejidad del Contenido</label>
               <div class="space-y-2">
-                <label class="flex items-center gap-3 p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
-                  <input type="radio" name="complexity" value="simple" checked class="w-5 h-5">
-                  <span class="text-white font-semibold">📝 Solo Texto (simple)</span>
+                <label class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
+                  <input type="radio" name="complexity" value="simple" checked class="w-4 h-4 md:w-5 md:h-5">
+                  <span class="text-white font-semibold text-sm md:text-base">📝 Solo Texto (simple)</span>
                 </label>
-                <label class="flex items-center gap-3 p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
-                  <input type="radio" name="complexity" value="complex" class="w-5 h-5">
-                  <span class="text-white font-semibold">📈 Con tablas, gráficos e imágenes</span>
+                <label class="flex items-center gap-2 md:gap-3 p-2 md:p-3 rounded-lg border-2 border-gray-700 cursor-pointer hover:border-yellow-400">
+                  <input type="radio" name="complexity" value="complex" class="w-4 h-4 md:w-5 md:h-5">
+                  <span class="text-white font-semibold text-sm md:text-base">📈 Con tablas, gráficos e imágenes</span>
                 </label>
               </div>
             </div>
 
             <!-- Submission Time -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">🕐 Hora de Radicación</label>
-              <div class="flex gap-3">
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">🕐 Hora de Radicación</label>
+              <div class="flex gap-2 md:gap-3">
                 <div>
                   <label for="submit-hour" class="sr-only">Hora</label>
-                  <input type="number" id="submit-hour" min="8" max="17" value="14" class="planning-input w-20 px-3 py-3 rounded-lg text-center text-base font-semibold">
+                  <input type="number" id="submit-hour" min="8" max="17" value="14" class="planning-input w-16 md:w-20 px-2 md:px-3 py-2 md:py-3 rounded-lg text-center text-sm md:text-base font-semibold">
                 </div>
                 <div>
                   <label for="submit-minute" class="sr-only">Minutos</label>
-                  <input type="number" id="submit-minute" min="0" max="59" value="30" class="planning-input w-20 px-3 py-3 rounded-lg text-center text-base font-semibold">
+                  <input type="number" id="submit-minute" min="0" max="59" value="30" class="planning-input w-16 md:w-20 px-2 md:px-3 py-2 md:py-3 rounded-lg text-center text-sm md:text-base font-semibold">
                 </div>
-                <span class="text-white font-bold flex items-center">horas</span>
+                <span class="text-white font-bold flex items-center text-sm md:text-base">horas</span>
               </div>
             </div>
 
             <!-- Days in Advance -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">📅 ¿Con cuántos días de anticipación planicas este envío?</label>
-              <input type="number" min="0" max="30" placeholder="Ej: 10" required class="planning-input w-full px-4 py-3 rounded-lg text-base font-semibold" id="days-advance">
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">📅 ¿Con cuántos días de anticipación planicas este envío?</label>
+              <input type="number" min="0" max="30" placeholder="Ej: 10" required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="days-advance">
             </div>
 
             <!-- Justification -->
-            <div class="exercise-card">
-              <label class="block text-white font-bold mb-3 text-lg">💭 Tu Evaluación Profesional</label>
-              <p class="text-gray-300 mb-3 font-semibold text-sm">¿Crees que este documento podrá publicarse en el Diario Oficial respetando los plazos normativos? ¿Por qué?</p>
-              <textarea placeholder="Explica tu análisis considerando los criterios técnicos de la INC..." required class="planning-input w-full px-4 py-3 rounded-lg text-base font-semibold" id="evaluation" rows="4" style="resize: vertical;"></textarea>
+            <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6">
+              <label class="block text-white font-bold mb-2 md:mb-3 text-base md:text-lg">💭 Tu Evaluación Profesional</label>
+              <p class="text-gray-300 mb-2 md:mb-3 font-semibold text-xs md:text-sm">¿Crees que este documento podrá publicarse en el Diario Oficial respetando los plazos normativos? ¿Por qué?</p>
+              <textarea placeholder="Explica tu análisis considerando los criterios técnicos de la INC..." required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="evaluation" rows="4" style="resize: vertical;"></textarea>
             </div>
 
             <!-- Submit -->
-            <div class="flex gap-4">
-              <button type="submit" class="flex-1 px-6 py-4 rounded-lg font-display font-bold transition-all border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
+            <div class="flex gap-2 md:gap-4 flex-wrap">
+              <button type="submit" class="flex-1 px-4 md:px-6 py-3 md:py-4 rounded-lg font-display font-bold transition-all border-3 border-yellow-400 text-sm md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
                 ✓ Enviar Evaluación
               </button>
-              <button type="button" onclick="skipExercise()" class="skip-button px-6 py-4 rounded-lg font-bold">
-                Saltar ejercicio
+              <button type="button" onclick="skipExercise()" class="px-3 md:px-6 py-3 md:py-4 rounded-lg font-bold border-2 text-sm md:text-base" style="background: rgba(255, 255, 255, 0.1); color: white; border-color: rgba(255, 255, 255, 0.3);">
+                Saltar
               </button>
             </div>
           </form>
@@ -2338,23 +1994,21 @@ Generado: ${new Date().toLocaleString('es-CO')}
       const daysAdvance = parseInt(document.getElementById('days-advance').value);
       const evaluation = document.getElementById('evaluation').value;
 
-      // Calculate if it will be published on time
       const difficulty = getDifficultyCategory(articles);
       const requiredDays = difficulty.days;
       const isOnTime = daysAdvance >= requiredDays && (hour < 15 || (hour === 15 && minute === 0));
 
-      // Show result
       const resultHTML = `
-        <div class="exercise-card rounded-xl p-6 border-3 ${isOnTime ? 'border-green-400 bg-green-600/25' : 'border-red-400 bg-red-600/25'}">
-          <h3 class="text-2xl font-bold mb-4 ${isOnTime ? 'text-green-200' : 'text-red-200'}">
+        <div class="exercise-card rounded-lg md:rounded-xl p-4 md:p-6 border-3 ${isOnTime ? 'border-green-400 bg-green-600/25' : 'border-red-400 bg-red-600/25'}">
+          <h3 class="text-lg md:text-2xl font-bold mb-3 md:mb-4 ${isOnTime ? 'text-green-200' : 'text-red-200'}">
             ${isOnTime ? '✅ PUBLICACIÓN EXITOSA' : '❌ RIESGO DE RETRASO'}
           </h3>
-          <div class="text-white font-semibold space-y-2 text-base">
+          <div class="text-white font-semibold space-y-2 text-xs md:text-sm">
             <p><strong>Entidad:</strong> ${entity}</p>
             <p><strong>Artículos:</strong> ${articles} (${articlesToPagesEstimate(articles)} páginas estimadas)</p>
             <p><strong>Anticipación requerida:</strong> ${requiredDays} días hábiles</p>
             <p><strong>Anticipación planificada:</strong> ${daysAdvance} días hábiles</p>
-            <p><strong>Análisis:</strong> ${isOnTime ? 'Has demostrado excelente planeación. El documento cumple con todos los plazos normativivos. ¡Corresponsabilidad en acción!' : 'Necesitas más tiempo de anticipación para garantizar la publicación oportuna.'}</p>
+            <p><strong>Análisis:</strong> ${isOnTime ? 'Has demostrado excelente planeación. El documento cumple con todos los plazos. ¡Corresponsabilidad en acción!' : 'Necesitas más tiempo de anticipación para garantizar la publicación oportuna.'}</p>
           </div>
         </div>
       `;
@@ -2378,7 +2032,7 @@ Generado: ${new Date().toLocaleString('es-CO')}
         ([qIdx, answer]) => slides[parseInt(qIdx)].quiz.correct === answer
       ).length;
       
-      const quizPercentage = Math.round((quizCorrect / slides.length) * 100);
+      quizPercentage = Math.round((quizCorrect / slides.length) * 100);
       
       const planningCorrect = Object.entries(planningAnswers).filter(
         ([cIdx, answer]) => planningScenarios[parseInt(cIdx)].correct === answer
@@ -2388,79 +2042,78 @@ Generado: ${new Date().toLocaleString('es-CO')}
       const maxScore = (slides.length * 12.5) + (planningScenarios.length * 10);
       const finalPercentage = Math.round((totalScore / maxScore) * 100);
       const passed = finalPercentage >= 70;
-      const canDownloadCertificate = quizPercentage >= 80;
 
       const container = document.getElementById('results-container');
       
       container.innerHTML = `
-        <div class="slide-enter">
-          <div class="relative mb-8">
-            <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br ${passed ? 'from-teal-400 to-teal-600' : 'from-orange-400 to-orange-600'} flex items-center justify-center shadow-2xl pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
-              <span class="text-7xl" aria-hidden="true">${passed ? '🏆' : '📚'}</span>
+        <div class="slide-enter w-full">
+          <div class="relative mb-6 md:mb-8">
+            <div class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full bg-gradient-to-br ${passed ? 'from-teal-400 to-teal-600' : 'from-orange-400 to-orange-600'} flex items-center justify-center shadow-2xl pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
+              <span class="text-5xl md:text-7xl" aria-hidden="true">${passed ? '🏆' : '📚'}</span>
             </div>
           </div>
           
-          <h2 class="font-display text-5xl font-bold text-white mb-4">
+          <h2 class="font-display text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             ${passed ? '¡Felicitaciones, Experto!' : '¡Sigue Aprendiendo!'}
           </h2>
           
-          <div class="bg-white/15 backdrop-blur rounded-2xl p-8 mb-6 border-4 border-yellow-400" style="border-color: #FFD700;">
-            <div class="text-7xl font-bold mb-3" style="color: #FFD700;">
+          <div class="bg-white/15 backdrop-blur rounded-lg md:rounded-2xl p-6 md:p-8 mb-4 md:mb-6 border-4 border-yellow-400" style="border-color: #FFD700;">
+            <div class="text-5xl md:text-7xl font-bold mb-2 md:mb-3" style="color: #FFD700;">
               ${finalPercentage}%
             </div>
-            <p class="text-white text-xl font-bold">
+            <p class="text-white text-base md:text-xl font-bold">
               Puntuación Total: ${Math.round(totalScore)} / ${Math.round(maxScore)}
             </p>
           </div>
 
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-blue-600/30 rounded-xl p-5 border-3 border-blue-400">
-              <div class="text-2xl font-display-bold text-blue-200 mb-2 font-bold">Test de Conocimiento</div>
-              <div class="text-4xl font-bold text-blue-100">${quizCorrect}/${slides.length}</div>
-              <div class="text-sm text-blue-200 mt-2 font-bold">${quizPercentage}% Correcto</div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
+            <div class="bg-blue-600/30 rounded-lg md:rounded-xl p-4 md:p-5 border-3 border-blue-400">
+              <div class="text-lg md:text-2xl font-display-bold text-blue-200 mb-2 font-bold">Test de Conocimiento</div>
+              <div class="text-3xl md:text-4xl font-bold text-blue-100">${quizCorrect}/${slides.length}</div>
+              <div class="text-xs md:text-sm text-blue-200 mt-2 font-bold">${quizPercentage}% Correcto</div>
             </div>
-            <div class="bg-purple-600/30 rounded-xl p-5 border-3 border-purple-400">
-              <div class="text-2xl font-display-bold text-purple-200 mb-2 font-bold">Juego Planeación</div>
-              <div class="text-4xl font-bold text-purple-100">${planningCorrect}/${planningScenarios.length}</div>
-              <div class="text-sm text-purple-200 mt-2 font-bold">${planningGameScore} puntos</div>
+            <div class="bg-purple-600/30 rounded-lg md:rounded-xl p-4 md:p-5 border-3 border-purple-400">
+              <div class="text-lg md:text-2xl font-display-bold text-purple-200 mb-2 font-bold">Juego Planeación</div>
+              <div class="text-3xl md:text-4xl font-bold text-purple-100">${planningCorrect}/${planningScenarios.length}</div>
+              <div class="text-xs md:text-sm text-purple-200 mt-2 font-bold">${planningGameScore} puntos</div>
             </div>
           </div>
 
-          <div class="bg-gradient-to-r from-teal-600/40 to-cyan-600/40 rounded-xl p-6 mb-6 border-4" style="border-color: #FFD700;">
+          <div class="bg-gradient-to-r from-teal-600/40 to-cyan-600/40 rounded-lg md:rounded-xl p-4 md:p-6 mb-4 md:mb-6 border-4" style="border-color: #FFD700;">
             <div class="text-center">
-              <div class="text-6xl mb-3" aria-hidden="true">${passed ? '⭐' : '🎖️'}</div>
-              <div class="font-display-bold text-white text-2xl font-bold mb-2" style="color: #FFD700;">
+              <div class="text-5xl md:text-6xl mb-2 md:mb-3" aria-hidden="true">${passed ? '⭐' : '🎖️'}</div>
+              <div class="font-display-bold text-white text-lg md:text-2xl font-bold mb-2" style="color: #FFD700;">
                 ${passed ? 'SERVIDOR PÚBLICO CERTIFICADO' : 'En Camino a la Certificación'}
               </div>
-              <p class="text-white text-base font-bold">
+              <p class="text-white text-sm md:text-base font-bold">
                 ${passed ? 'Demostraste excelencia en planeación editorial responsable y dominio de los criterios técnicos de la INC.' : 'Completa el curso con 70% o más para obtener tu certificación.'}
               </p>
             </div>
           </div>
 
-          ${canDownloadCertificate ? `
-            <div class="bg-green-600/35 rounded-xl p-5 mb-6 border-3 border-green-400 text-center">
-              <div class="text-4xl mb-3" aria-hidden="true">📜</div>
-              <p class="text-green-200 font-bold mb-3 text-lg">¡Quiz con 80% o superior!</p>
-              <button onclick="generateCertificate(${quizPercentage})" class="btn-primary">
-                📥 Descargar Certificado
+          ${passed ? `
+            <div class="bg-green-600/35 rounded-lg md:rounded-xl p-4 md:p-5 mb-4 md:mb-6 border-3 border-green-400 text-center">
+              <div class="text-4xl md:text-5xl mb-2 md:mb-3" aria-hidden="true">📜</div>
+              <p class="text-green-200 font-bold mb-3 text-base md:text-lg">¡Has aprobado el quiz!</p>
+              <button onclick="requestUserData()" class="btn-primary text-sm md:text-base">
+                📋 Solicitar Certificado
               </button>
             </div>
           ` : ''}
 
-          <div class="space-y-3">
-            <button onclick="restartCourse()" class="w-full px-6 py-4 rounded-xl font-display font-bold transition-all border-3 border-yellow-400" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
+          <div class="space-y-2 md:space-y-3">
+            <button onclick="restartCourse()" class="w-full px-4 md:px-6 py-3 md:py-4 rounded-lg md:rounded-xl font-display font-bold transition-all border-3 border-yellow-400 text-sm md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
               🔄 Volver a Intentar
             </button>
-            <button onclick="useCalculatorFinal()" class="w-full px-6 py-4 rounded-xl font-display font-bold transition-all border-3 border-yellow-400" style="background: rgba(255, 215, 0, 0.15); color: white;">
+            <button onclick="useCalculatorFinal()" class="w-full px-4 md:px-6 py-3 md:py-4 rounded-lg md:rounded-xl font-display font-bold transition-all border-3 border-yellow-400 text-sm md:text-base" style="background: rgba(255, 215, 0, 0.15); color: white;">
               🧮 Usar Calculadora
             </button>
-            <button onclick="reviewContent()" class="w-full px-6 py-4 bg-gray-700 text-white font-semibold rounded-xl hover:bg-gray-600 transition-all border-2 border-gray-600">
+            <button onclick="reviewContent()" class="w-full px-4 md:px-6 py-3 md:py-4 bg-gray-700 text-white font-semibold rounded-lg md:rounded-xl hover:bg-gray-600 transition-all border-2 border-gray-600 text-sm md:text-base">
               📖 Revisar Contenido
             </button>
           </div>
 
-          <p class="text-gray-300 text-base mt-6 text-center font-bold">
+          <p class="text-gray-300 text-xs md:text-base mt-4 md:mt-6 text-center font-bold">
             ${passed ? '¡Ahora eres un experto en planeación editorial! Comparte tus conocimientos con tus colegas. 🌟' : 'Sigue estudiando los criterios técnicos de la INC y aprenderás a dominar la planeación editorial. 📚'}
           </p>
         </div>
@@ -2469,54 +2122,143 @@ Generado: ${new Date().toLocaleString('es-CO')}
       await saveProgress(quizCorrect, slides.length, planningGameScore, finalPercentage);
     }
 
-    function generateCertificate(quizPercentage) {
+    function requestUserData() {
       document.getElementById('results-screen').classList.add('hidden');
-      document.getElementById('certificate-screen').classList.remove('hidden');
-      renderCertificate(quizPercentage);
+      document.getElementById('user-data-screen').classList.remove('hidden');
+      renderUserDataForm();
     }
 
-    function renderCertificate(quizPercentage) {
+    function renderUserDataForm() {
+      const container = document.getElementById('user-data-container');
+      
+      container.innerHTML = `
+        <div class="slide-enter max-w-2xl mx-auto w-full">
+          <div class="text-center mb-6 md:mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 mb-4 pulse-glow border-4 border-yellow-400" style="border-color: #FFD700;">
+              <span class="text-3xl md:text-4xl" aria-hidden="true">📋</span>
+            </div>
+            <h2 class="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
+              Datos del Servidor Público
+            </h2>
+            <p class="text-gray-300 text-sm md:text-base font-semibold">
+              Para generar tu certificado, completa tus datos personales
+            </p>
+          </div>
+
+          <form id="user-data-form" onsubmit="submitUserData(event)" class="space-y-4 md:space-y-6 bg-white/15 backdrop-blur rounded-lg md:rounded-xl p-4 md:p-6 border-3 border-yellow-400">
+            <!-- Full Name -->
+            <div>
+              <label class="block text-white font-bold mb-2 text-sm md:text-base">👤 Nombres y Apellidos</label>
+              <input type="text" placeholder="Ej: Juan Carlos Rodríguez González" required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="user-name">
+            </div>
+
+            <!-- Document Type -->
+            <div>
+              <label class="block text-white font-bold mb-2 text-sm md:text-base">🆔 Tipo de Documento de Identidad</label>
+              <select required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="document-type">
+                <option value="">-- Selecciona un tipo --</option>
+                <option value="CC">Cédula de Ciudadanía</option>
+                <option value="CE">Cédula de Extranjería</option>
+                <option value="PA">Pasaporte</option>
+              </select>
+            </div>
+
+            <!-- Document Number -->
+            <div>
+              <label class="block text-white font-bold mb-2 text-sm md:text-base">📄 Número del Documento</label>
+              <input type="text" placeholder="Ej: 1234567890" required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="document-number">
+            </div>
+
+            <!-- Entity/Organization -->
+            <div>
+              <label class="block text-white font-bold mb-2 text-sm md:text-base">🏛️ Entidad en la que Labora</label>
+              <input type="text" placeholder="Ej: Ministerio del Interior" required class="planning-input w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm md:text-base font-semibold" id="entity">
+            </div>
+
+            <div class="flex gap-2 md:gap-4 flex-wrap">
+              <button type="submit" class="flex-1 px-4 md:px-6 py-3 md:py-4 rounded-lg font-display font-bold transition-all border-3 border-yellow-400 text-sm md:text-base" style="background: linear-gradient(135deg, #1d3c50 0%, #618485 100%); color: white;">
+                ✓ Generar Certificado
+              </button>
+              <button type="button" onclick="backToResults()" class="px-4 md:px-6 py-3 md:py-4 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 transition-all border-2 border-gray-600 text-sm md:text-base">
+                ← Volver
+              </button>
+            </div>
+          </form>
+        </div>
+      `;
+    }
+
+    function submitUserData(event) {
+      event.preventDefault();
+      
+      userData = {
+        name: document.getElementById('user-name').value,
+        documentType: document.getElementById('document-type').value,
+        documentNumber: document.getElementById('document-number').value,
+        entity: document.getElementById('entity').value
+      };
+
+      generateCertificate();
+    }
+
+    function backToResults() {
+      document.getElementById('user-data-screen').classList.add('hidden');
+      document.getElementById('results-screen').classList.remove('hidden');
+    }
+
+    function generateCertificate() {
+      document.getElementById('user-data-screen').classList.add('hidden');
+      document.getElementById('certificate-screen').classList.remove('hidden');
+      renderCertificate();
+    }
+
+    function renderCertificate() {
       const today = new Date();
       const dateStr = today.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
       
       const container = document.getElementById('certificate-container');
       container.innerHTML = `
-        <div class="slide-enter">
+        <div class="slide-enter w-full">
           <div class="certificate-container">
             <div class="certificate-header">
-              <div class="certificate-seal">🏛️</div>
-              <div style="color: #1d3c50; font-size: 1rem; letter-spacing: 3px; font-weight: 900;">IMPRENTA NACIONAL DE COLOMBIA</div>
+              <div class="certificate-seal" aria-label="Logo Imprenta Nacional de Colombia">🏛️</div>
+              <div style="color: #1d3c50; font-size: 0.8rem; letter-spacing: 2px; font-weight: 900;">IMPRENTA NACIONAL DE COLOMBIA</div>
               <h1 class="certificate-title">CERTIFICADO DE COMPLETITUD</h1>
-              <div style="color: #618485; font-size: 1rem; margin-top: 0.5rem; font-weight: 700;">Curso: El Diario Oficial</div>
+              <div style="color: #618485; font-size: 0.9rem; margin-top: 0.5rem; font-weight: 700;">Curso: Diario Oficial - INC | ¿Cómo publicar a tiempo?</div>
             </div>
 
-            <div style="text-align: center; padding: 2rem 0; color: #1d3c50;">
-              <p style="font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700;">Por este medio se certifica que</p>
-              <p style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; font-size: 1.6rem; margin-bottom: 1.5rem; color: #1d3c50;">
-                Servidor Público
+            <div style="text-align: center; padding: 1.5rem 0; color: #1d3c50;">
+              <p style="font-size: 0.95rem; margin-bottom: 1rem; font-weight: 700;">Por este medio la INC certifica que:</p>
+              <p style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; font-size: 1.3rem; margin-bottom: 0.5rem; color: #1d3c50;">
+                ${userData.name}
               </p>
-              <p style="font-size: 1rem; margin-bottom: 2rem; font-weight: 700;">ha completado satisfactoriamente el</p>
-              <p style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; font-size: 1.3rem; color: #618485; margin-bottom: 1.5rem;">CURSO: EL DIARIO OFICIAL</p>
-              <p style="font-size: 0.95rem; margin-bottom: 2rem; color: #1d3c50; font-weight: 700;">con una calificación de</p>
-              <p style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; font-size: 2.2rem; color: #618485; margin-bottom: 0.5rem;">${quizPercentage}%</p>
-              <p style="font-size: 0.9rem; color: #1d3c50; margin-bottom: 2rem; font-weight: 700;">en el componente de evaluación de conocimientos</p>
+              <p style="font-size: 0.85rem; margin-bottom: 1.5rem; font-weight: 700; color: #618485;">
+                ${userData.documentType} Nº ${userData.documentNumber}
+              </p>
+              <p style="font-size: 0.9rem; margin-bottom: 2rem; font-weight: 700;">Servidor Público</p>
+              
+              <p style="font-size: 0.9rem; margin-bottom: 1rem; font-weight: 700;">ha completado satisfactoriamente el</p>
+              <p style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; font-size: 1.2rem; color: #618485; margin-bottom: 1.5rem;">CURSO: DIARIO OFICIAL - INC<br>¿CÓMO PUBLICAR A TIEMPO?</p>
+              <p style="font-size: 0.85rem; margin-bottom: 1.5rem; font-weight: 700;">con una calificación de</p>
+              <p style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; font-size: 1.8rem; color: #618485; margin-bottom: 0.5rem;">${quizPercentage}%</p>
+              <p style="font-size: 0.8rem; color: #1d3c50; margin-bottom: 2rem; font-weight: 700;">en el componente de Evaluación de conocimientos</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 3px solid #1d3c50;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 3px solid #1d3c50;">
               <div style="text-align: center;">
-                <div style="height: 80px; margin-bottom: 0.5rem;"></div>
-                <div style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; color: #1d3c50; font-size: 0.9rem;">Autoridad Certificante</div>
-                <div style="color: #618485; font-size: 0.85rem; margin-top: 0.5rem; font-weight: 700;">Imprenta Nacional de Colombia</div>
+                <div style="height: 60px; margin-bottom: 0.5rem;"></div>
+                <div style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; color: #1d3c50; font-size: 0.8rem;">Viviana León Herrera</div>
+                <div style="color: #618485; font-size: 0.75rem; margin-top: 0.3rem; font-weight: 700;">Gerente General - INC</div>
               </div>
               <div style="text-align: center;">
-                <div style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; color: #1d3c50; font-size: 1rem; margin-bottom: 0.5rem;">${dateStr}</div>
-                <div style="color: #618485; font-size: 0.85rem; font-weight: 700;">Fecha de Expedición</div>
+                <div style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; color: #1d3c50; font-size: 0.85rem; margin-bottom: 0.3rem;">${dateStr}</div>
+                <div style="color: #618485; font-size: 0.75rem; font-weight: 700;">Fecha de Expedición</div>
               </div>
             </div>
 
-            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #618485;">
-              <div style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; color: #1d3c50; font-size: 0.9rem; margin-bottom: 1rem;">Este certificado acredita competencias en:</div>
-              <ul style="list-style: none; padding: 0; color: #1d3c50; font-size: 0.85rem; font-weight: 700;">
+            <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #618485;">
+              <div style="font-family: 'Nunito Sans', Verdana, sans-serif; font-weight: 900; color: #1d3c50; font-size: 0.8rem; margin-bottom: 0.8rem;">Este certificado acredita competencias en:</div>
+              <ul style="list-style: none; padding: 0; color: #1d3c50; font-size: 0.75rem; font-weight: 700;">
                 <li>✓ Conocimiento del marco legal y procedimental del Diario Oficial</li>
                 <li>✓ Dominio de criterios técnicos de producción editorial (INC)</li>
                 <li>✓ Planeación estratégica de documentos para publicación</li>
@@ -2525,41 +2267,15 @@ Generado: ${new Date().toLocaleString('es-CO')}
             </div>
           </div>
 
-          <div class="credits-section mt-8">
-            <div class="credits-title">📜 Créditos - Curso: El Diario Oficial</div>
-            <div class="credits-text">
-              <strong style="color: #1d3c50;">Diseño Conceptual y Educativo:</strong><br>
-              Martha Lucía Ortiz Cárdenas
-            </div>
-            <div class="credits-text">
-              <strong style="color: #1d3c50;">Fuente Institucional:</strong><br>
-              Insumos de la Imprenta Nacional de Colombia - Criterios Técnicos de Producción Editorial
-            </div>
-            <div class="credits-text">
-              <strong style="color: #1d3c50;">Versión:</strong> 01<br>
-              <strong style="color: #1d3c50;">Fecha:</strong> 12 de febrero de 2026
-            </div>
-            <div class="credits-text" style="margin-top: 1.5rem;">
-              <strong style="color: #1d3c50;">Herramientas Utilizadas:</strong>
-            </div>
-            <ul class="credits-list">
-              <li>✓ <strong>HTML5</strong> - Estructura semántica accesible y semántica</li>
-              <li>✓ <strong>CSS3</strong> - Diseño responsivo, animaciones WCAG AAA</li>
-              <li>✓ <strong>JavaScript Vanilla</strong> - Lógica interactiva sin dependencias</li>
-              <li>✓ <strong>Tailwind CSS 3.4.17</strong> - Framework de utilidades CSS</li>
-              <li>✓ <strong>Google Fonts (Nunito Sans)</strong> - Tipografía principal profesional</li>
-              <li>✓ <strong>Tratado de Marrakech</strong> - Estándares de accesibilidad WCAG AAA</li>
-              <li>✓ <strong>Web Accessibility Initiative (WAI)</strong> - Directrices de accesibilidad web</li>
-              <li>✓ <strong>ARIA (Accessible Rich Internet Applications)</strong> - Atributos semánticos</li>
-            </ul>
-          </div>
-
-          <div class="flex justify-center gap-4 mt-8">
-            <button onclick="downloadCertificatePDF()" class="btn-primary">
+          <div class="flex justify-center gap-2 md:gap-4 flex-wrap mt-4 md:mt-8">
+            <button onclick="downloadCertificatePDF()" class="btn-primary text-sm md:text-base">
               📥 Descargar PDF
             </button>
-            <button onclick="backToResults()" class="btn-secondary">
-              ← Volver
+            <button onclick="shareApproval()" class="btn-primary text-sm md:text-base">
+              📤 Compartir
+            </button>
+            <button onclick="restartCourse()" class="btn-secondary text-sm md:text-base">
+              ← Volver al Inicio
             </button>
           </div>
         </div>
@@ -2570,9 +2286,17 @@ Generado: ${new Date().toLocaleString('es-CO')}
       window.print();
     }
 
-    function backToResults() {
-      document.getElementById('certificate-screen').classList.add('hidden');
-      document.getElementById('results-screen').classList.remove('hidden');
+    function shareApproval() {
+      const text = `¡Acabo de completar el Curso: Diario Oficial - INC | ¿Cómo publicar a tiempo? con ${quizPercentage}% en evaluación de conocimientos. 🎓📜 #DiarioOficial #INC`;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: 'Certificado de Curso - Imprenta Nacional',
+          text: text
+        });
+      } else {
+        alert(text);
+      }
     }
 
     async function saveProgress(quizScore, quizTotal, gameScore, finalPercentage) {
@@ -2591,6 +2315,11 @@ Generado: ${new Date().toLocaleString('es-CO')}
         final_percentage: finalPercentage,
         calculator_usage: 'explored',
         glossary_searches: 0,
+        user_name: userData.name || 'Anónimo',
+        user_document_type: userData.documentType || '',
+        user_document_number: userData.documentNumber || '',
+        user_entity: userData.entity || '',
+        certificate_generated: true,
         completed_at: new Date().toISOString()
       });
 
@@ -2606,9 +2335,11 @@ Generado: ${new Date().toLocaleString('es-CO')}
       quizAnswers = {};
       planningAnswers = {};
       planningGameScore = 0;
+      userData = {};
       
       document.getElementById('results-screen').classList.add('hidden');
       document.getElementById('certificate-screen').classList.add('hidden');
+      document.getElementById('user-data-screen').classList.add('hidden');
       document.getElementById('welcome-screen').classList.remove('hidden');
     }
 
@@ -2634,5 +2365,5 @@ Generado: ${new Date().toLocaleString('es-CO')}
     // Initialize
     initSDKs();
   </script>
-</body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ccde5b45797f77a',t:'MTc3MDkxODMwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
